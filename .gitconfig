@@ -1,0 +1,44 @@
+[user]
+    name = Dmitry Baginsky
+    email = dmitri.baginski@gmail.com
+[github]
+    user = betraying
+[alias]
+    a = add
+    r = reset
+    co = checkout
+    c = commit
+    s = status
+    b = branch
+    l = log --pretty=format:\"%C(red)%h %C(cyan)%ad %C(reset)| %s%C(bold yellow)%d %C(bold blue)[%an]\" --graph --date=format:'%Y-%m-%d %I:%M %p'
+    dt = difftool
+    mt = mergetool
+    pr = pull --rebase
+    d = diff
+    dc = diff --cached
+    cp = cherry-pick
+[pull]
+    rebase = true
+[status]
+    showStash = true
+[rebase]
+    autostash = true
+[stash]
+    showPatch = true
+[push]
+    default = current
+[mergetool "Kaleidoscope"]
+    cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+    trustexitcode = true
+[merge]
+    tool = Kaleidoscope
+[difftool "Kaleidoscope"]
+    cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool]
+    prompt = false
+[mergetool]
+    prompt = false
+[diff]
+    tool = Kaleidoscope
+[core]
+	excludesfile = /Users/betraying/.gitignore
