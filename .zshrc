@@ -1,6 +1,6 @@
-export ZSH="/Users/betraying/.oh-my-zsh"
+export ZSH="/Users/$(whoami)/.oh-my-zsh"
 
-DEFAULT_USER=`whoami`
+DEFAULT_USER=$(whoami)
 
 POWERLEVEL9K_MODE="nerdfont-complete"
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
