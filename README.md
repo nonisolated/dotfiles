@@ -5,10 +5,10 @@
 xcode-select --install
 ```
 ```shell
-git clone https://github.com/betraying/dotfiles ~/.dotfiles
-ln -s ~/.dotfiles/.zshrc ~/.zshrc && 
-ln -s ~/.dotfiles/.gitconfig ~/.gitconfig && 
-ln -s ~/.dotfiles/.gitignore ~/.gitignore
+git clone https://github.com/betraying/dotfiles ~/.dotfiles &&
+ln -s ~/.dotfiles/.zshrc ~/.zshrc;
+ln -s ~/.dotfiles/.gitconfig ~/.gitconfig;
+ln -s ~/.dotfiles/.gitignore ~/.gitignore;
 ```
 
 ## [homebrew](https://github.com/Homebrew/brew)
