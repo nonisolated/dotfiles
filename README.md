@@ -50,3 +50,11 @@ rbenv init
 curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-doctor | bash
 gem install bundler xcode-install cocoapods fastlane 
 ```
+
+## symbolic links
+```shell
+icloud=~/Library/Mobile\ Documents/com\~apple\~CloudDocs/Symbolic\ Links;
+ln -s $icloud/Insomnia /Users/$(whoami)/Library/Application\ Support/Insomnia;
+ln -s $icloud/Xcode/FontAndColorThemes ~/Library/Developer/Xcode/UserData/FontAndColorThemes;
+ln -s $icloud/Xcode/CodeSnippets ~/Library/Developer/Xcode/UserData/CodeSnippets;
+```
