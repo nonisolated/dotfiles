@@ -58,3 +58,14 @@ ln -s $icloud/Insomnia /Users/$(whoami)/Library/Application\ Support/Insomnia;
 ln -s $icloud/Xcode/FontAndColorThemes ~/Library/Developer/Xcode/UserData/FontAndColorThemes;
 ln -s $icloud/Xcode/CodeSnippets ~/Library/Developer/Xcode/UserData/CodeSnippets;
 ```
+
+## troubleshooting
+Updating gems may fix known issues:
+```
+gem update
+gem update --system
+```
+Removing old gems may help to avoid conficts with versions and fix weird errors:
+```
+gem cleanup
+```
