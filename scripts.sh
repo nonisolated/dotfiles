@@ -7,9 +7,9 @@ function quarantine() {
 function open_applications() {
 	case "$@" in
     "home")
-        declare -a apps=("Safari" "Spark" "Telegram") ;;
+        declare -a apps=("Safari" "Spark" "Telegram" "Mate Translate") ;;
     "work")
-        declare -a apps=("Safari" "Spark" "Telegram" "Skype" "Slack" "Xcode" "Insomnia") ;;
+        declare -a apps=("Safari" "Spark" "Telegram" "Skype" "Slack" "Xcode" "Insomnia" "Dropbox" "Mate Translate") ;;
 	esac
 
 	for app in "${apps[@]}"; do
