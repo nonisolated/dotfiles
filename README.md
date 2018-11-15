@@ -18,7 +18,7 @@ brew doctor
 ```
 
 ```shell
-brew install hub jq swiftgen zsh-autosuggestions
+brew install git hub jq swiftgen zsh-autosuggestions
 
 ```
 
