@@ -1,5 +1,12 @@
 #!/bin/sh
 
+function ru() {
+	lang=$LANG
+	export LANG=ru_RU.UTF-8
+	eval "$1"
+	export LANG=$lang
+}
+
 function quarantine() {
 	sudo xattr -rd com.apple.quarantine /Applications/"$1".app
 }
