@@ -24,7 +24,7 @@ brew install git hub jq swiftgen zsh-autosuggestions
 
 ```shell
 brew tap caskroom/cask
-brew cask install sublime-text iterm2 insomnia spectacle ksdiff 
+brew cask install sublime-text iterm2 paw spectacle ksdiff 
 brew cask install telegram google-chrome 1password skype slack vlc transmission teamviewer steam
 ```
 
