@@ -9,6 +9,8 @@ git clone https://github.com/betraying/dotfiles ~/.dotfiles &&
 ln -s ~/.dotfiles/.zshrc ~/.zshrc;
 ln -s ~/.dotfiles/.gitconfig ~/.gitconfig;
 ln -s ~/.dotfiles/.gitignore ~/.gitignore;
+
+ln -s ~/.dotfiles/symlinks/Spectacle ~/Library/Application\ Support
 ```
 
 ## [homebrew](https://github.com/Homebrew/brew)
