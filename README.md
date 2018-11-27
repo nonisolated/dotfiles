@@ -53,12 +53,8 @@ curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-doctor 
 gem install bundler xcode-install cocoapods fastlane 
 ```
 
-## symbolic links
+## symlinks
 ```shell
-icloud=~/Library/Mobile\ Documents/com\~apple\~CloudDocs/Symbolic\ Links;
-ln -s $icloud/Xcode/FontAndColorThemes ~/Library/Developer/Xcode/UserData/FontAndColorThemes;
-ln -s $icloud/Xcode/CodeSnippets ~/Library/Developer/Xcode/UserData/CodeSnippets;
-
 ln -s ~/.dotfiles/symlinks/Spectacle ~/Library/Application\ Support
 ```
 
