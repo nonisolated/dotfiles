@@ -9,8 +9,8 @@ git clone https://github.com/betraying/dotfiles ~/.dotfiles &&
 ln -s ~/.dotfiles/.zshrc ~/.zshrc;
 ln -s ~/.dotfiles/.gitconfig ~/.gitconfig;
 ln -s ~/.dotfiles/.gitignore ~/.gitignore;
+ln -s ~/.dotfiles/.hyper.js ~/.hyper.js;
 
-ln -s ~/.dotfiles/symlinks/Spectacle ~/Library/Application\ Support
 ```
 
 ## [homebrew](https://github.com/Homebrew/brew)
@@ -26,7 +26,7 @@ brew install git hub jq swiftgen zsh-autosuggestions
 
 ```shell
 brew tap caskroom/cask
-brew cask install sublime-text iterm2 paw spectacle ksdiff 
+brew cask install sublime-text hyper paw spectacle ksdiff
 brew cask install telegram google-chrome 1password skype slack vlc transmission teamviewer steam
 ```
 
@@ -58,6 +58,8 @@ gem install bundler xcode-install cocoapods fastlane
 icloud=~/Library/Mobile\ Documents/com\~apple\~CloudDocs/Symbolic\ Links;
 ln -s $icloud/Xcode/FontAndColorThemes ~/Library/Developer/Xcode/UserData/FontAndColorThemes;
 ln -s $icloud/Xcode/CodeSnippets ~/Library/Developer/Xcode/UserData/CodeSnippets;
+
+ln -s ~/.dotfiles/symlinks/Spectacle ~/Library/Application\ Support
 ```
 
 ## troubleshooting
