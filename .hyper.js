@@ -5,7 +5,7 @@
 module.exports = {
   config: {
     summon: {
-      hideDock: true,
+      hideDock: false,
       hideOnBlur: false,
       hotkey: 'Option+Space'
     },
@@ -19,7 +19,7 @@ module.exports = {
     updateChannel: 'stable',
 
     // default font size in pixels for all tabs
-    fontSize: 15,
+    fontSize: 16,
 
     // font family with optional fallbacks
     fontFamily: 'Hack Nerd Font',
@@ -50,13 +50,21 @@ module.exports = {
     backgroundColor: '#000',
 
     // terminal selection color
-    selectionColor: 'rgba(248,28,229,0.3)',
+    selectionColor: 'rgba(147,161,161,0.3)',
 
     // border color (window, tabs)
     borderColor: '#333',
 
     // custom CSS to embed in the main window
-    css: '',
+    css: 
+    `
+    .tab_tab :hover { background-color: #001a21!important; }
+    .tabs_nav { background-color: transparent!important; }
+    
+    // hide tabs
+    .header_header { display: none; }
+    .terms_terms { margin-top: 0px; }
+    `,
 
     // custom CSS to embed in the terminal window
     termCSS: '',
@@ -71,7 +79,7 @@ module.exports = {
     showWindowControls: false,
 
     // custom padding (CSS format, i.e.: `top right bottom left`)
-    padding: '0px 3px',
+    padding: '10px',
 
     // the full list. if you're going to provide the full color palette,
     // including the 6 x 6 color cubes and the grayscale map, just provide
@@ -142,11 +150,11 @@ module.exports = {
   //   `@company/project`
   //   `project#1.0.1`
   plugins: [
-    "hyper-solarized-dark",
     "hyper-pane",
     "hyperterm-summon",
     "hyper-tabs-enhanced",
-    "hypercwd"
+    "hypercwd",
+    "hyper-solarized-dark"
   ],
 
   // in development, you can create a directory under

@@ -3,20 +3,6 @@
     email = dmitri.baginski@gmail.com
 [github]
     user = betraying
-[alias]
-    a = add
-    r = reset
-    co = checkout
-    c = commit
-    s = status
-    b = branch
-    l = log --pretty=format:\"%C(red)%h %C(cyan)%ad %C(reset)| %s%C(bold yellow)%d %C(bold blue)[%an]\" --graph --date=format:'%Y-%m-%d %I:%M %p'
-    dt = difftool
-    mt = mergetool
-    pr = pull --rebase
-    d = diff
-    dc = diff --cached
-    cp = cherry-pick
 [pull]
     rebase = true
 [status]
