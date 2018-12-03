@@ -16,7 +16,7 @@ function open_applications() {
     "home")
         declare -a apps=("Safari" "Spark" "Telegram" "Mate Translate") ;;
     "work")
-        declare -a apps=("Safari" "Spark" "Telegram" "Skype" "Slack" "Xcode" "Paw" "Dropbox" "Mate Translate") ;;
+        declare -a apps=("Safari" "Spark" "Telegram" "Skype" "Slack" "/Applications/Xcode.app" "Paw" "Dropbox" "Mate Translate") ;;
 	esac
 
 	for app in "${apps[@]}"; do
