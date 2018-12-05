@@ -9,7 +9,6 @@ git clone https://github.com/betraying/dotfiles ~/.dotfiles &&
 ln -s ~/.dotfiles/.zshrc ~/.zshrc;
 ln -s ~/.dotfiles/.gitconfig ~/.gitconfig;
 ln -s ~/.dotfiles/.gitignore ~/.gitignore;
-ln -s ~/.dotfiles/.hyper.js ~/.hyper.js;
 
 ```
 
@@ -26,7 +25,7 @@ brew install git hub jq swiftgen zsh-autosuggestions
 
 ```shell
 brew tap caskroom/cask
-brew cask install sublime-text hyper paw spectacle ksdiff
+brew cask install sublime-text iterm paw spectacle ksdiff
 brew cask install telegram google-chrome 1password skype slack vlc transmission teamviewer steam
 ```
 
@@ -51,11 +50,6 @@ brew install rbenv
 rbenv init
 curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-doctor | bash
 gem install bundler xcode-install cocoapods fastlane 
-```
-
-## symlinks
-```shell
-ln -s ~/.dotfiles/symlinks/Spectacle ~/Library/Application\ Support
 ```
 
 ## troubleshooting
