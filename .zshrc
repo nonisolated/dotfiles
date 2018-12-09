@@ -11,7 +11,6 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_to_last"
 
 plugins=(
-  git
   xcode
   sublime
   osx
@@ -20,13 +19,11 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/.dotfiles/scripts.sh
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
+source $HOME/.dotfiles/.aliases
+source $HOME/.dotfiles/scripts.sh
 
-alias dotfiles="cd ~/.dotfiles"
-alias gitdir="cd ~/Documents/Git"
-alias git=hub
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
 
 eval "$(rbenv init -)"

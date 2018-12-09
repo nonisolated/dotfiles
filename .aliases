@@ -1,0 +1,53 @@
+# Git
+
+alias git=hub
+alias g='git'
+
+alias ga='git add'
+alias gaa='git add --all'
+alias gap='git add --patch'
+alias gau='git add --update'
+
+alias grs='git reset'
+
+alias gb='git branch'
+
+alias gco='git checkout'
+
+alias gcp='git cherry-pick'
+
+alias gc='git commit -v'
+alias gca='git commit -v -a'
+alias gcm='git commit -m'
+alias gcam='git commit -am'
+
+alias gd='git diff --color | sed -E "s/^([^-+ ]*)[-+ ]/\\1/" | less -r'
+alias gdw='git diff --word-diff'
+
+alias gdc='git diff --cached --color | sed -E "s/^([^-+ ]*)[-+ ]/\\1/" | less -r'
+alias gdcw='git diff --cached --word-diff'
+
+alias gf='git fetch'
+alias gpl='git pull'
+alias gps='git push'
+
+alias gm='git merge'
+alias gmt='git mergetool'
+
+alias grb='git rebase'
+
+alias gsh='git show'
+alias gst='git status'
+alias gsta='git stash'
+
+alias gcl='git clean -fd'
+alias gpristine='git reset --hard && git clean -dfx'
+
+# Folders
+
+alias dotfiles="cd ~/.dotfiles"
+alias gitdir="cd ~/Documents/Git"
+
+# Common
+
+alias aliases="cat ~/.dotfiles/.aliases"
