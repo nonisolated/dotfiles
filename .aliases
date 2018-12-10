@@ -1,6 +1,5 @@
 # Git
 
-alias git=hub
 alias g='git'
 
 alias ga='git add'
@@ -43,6 +42,8 @@ alias gsta='git stash'
 alias gcl='git clean -fd'
 alias gpristine='git reset --hard && git clean -dfx'
 
+alias git=hub
+
 # Folders
 
 alias dotfiles="cd ~/.dotfiles"
@@ -50,4 +51,4 @@ alias gitdir="cd ~/Documents/Git"
 
 # Common
 
-alias aliases="cat ~/.dotfiles/.aliases"
+alias aliases="ccat ~/.dotfiles/.aliases"
