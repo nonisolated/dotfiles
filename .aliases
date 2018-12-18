@@ -20,10 +20,10 @@ alias gca='git commit -v -a'
 alias gcm='git commit -m'
 alias gcam='git commit -am'
 
-alias gd='git diff --color | sed -E "s/^([^-+ ]*)[-+ ]/\\1/" | less -r'
+alias gd='f() { git diff --color | sed -E "s/^([^-+ ]*)[-+ ]/\\1/" | less -r }; f'
 alias gdw='git diff --word-diff'
 
-alias gdc='git diff --cached --color | sed -E "s/^([^-+ ]*)[-+ ]/\\1/" | less -r'
+alias gdc='f() { git diff --cached --color | sed -E "s/^([^-+ ]*)[-+ ]/\\1/" | less -r }; f'
 alias gdcw='git diff --cached --word-diff'
 
 alias gl='git log --pretty=format:"%C(yellow)%h %C(cyan)%ad %C(reset)| %s%C(bold yellow)%d %C(bold blue)[%an]" --graph --date=format:'%Y-%m-%d %I:%M %p''
@@ -37,7 +37,7 @@ alias gmt='git mergetool'
 
 alias grb='git rebase'
 
-alias gsh='git show --color | sed -E "s/^([^-+ ]*)[-+ ]/\\1/" | less -r'
+alias gsh='f() { git show --color | sed -E "s/^([^-+ ]*)[-+ ]/\\1/" | less -r }; f'
 alias gst='git status'
 alias gsta='git stash'
 
