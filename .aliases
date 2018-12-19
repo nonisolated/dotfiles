@@ -20,11 +20,11 @@ alias gca='git commit -v -a'
 alias gcm='git commit -m'
 alias gcam='git commit -am'
 
-alias gd='f() { git diff --color | sed -E "s/^([^-+ ]*)[-+ ]/\\1/" | less -r }; f'
-alias gdw='git diff --word-diff'
+alias gd='f() { git diff --color $1 | sed -E "s/^([^-+ ]*)[-+ ]/\\1/" | less -r }; f'
+alias gdw='git diff --word-diff $1'
 
-alias gdc='f() { git diff --cached --color | sed -E "s/^([^-+ ]*)[-+ ]/\\1/" | less -r }; f'
-alias gdcw='git diff --cached --word-diff'
+alias gdc='f() { git diff $1 --cached --color $1 | sed -E "s/^([^-+ ]*)[-+ ]/\\1/" | less -r }; f'
+alias gdcw='git diff --cached --word-diff $1'
 
 alias gl='git log --pretty=format:"%C(yellow)%h %C(cyan)%ad %C(reset)| %s%C(bold yellow)%d %C(bold blue)[%an]" --graph --date=format:'%Y-%m-%d %I:%M %p''
 
@@ -37,7 +37,7 @@ alias gmt='git mergetool'
 
 alias grb='git rebase'
 
-alias gsh='f() { git show --color | sed -E "s/^([^-+ ]*)[-+ ]/\\1/" | less -r }; f'
+alias gsh='f() { git show $1 --color | sed -E "s/^([^-+ ]*)[-+ ]/\\1/" | less -r }; f'
 alias gst='git status'
 alias gsta='git stash'
 
@@ -54,4 +54,4 @@ alias gitdir="cd ~/Documents/Git"
 # Common
 
 alias aliases="ccat ~/.dotfiles/.aliases"
-alias stfs="st $(pfs)"
+alias stfs="st `pfs`"
