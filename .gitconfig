@@ -3,6 +3,8 @@
     email = dmitri.baginski@gmail.com
 [github]
     user = betraying
+[core]
+    excludesfile = /Users/user/.gitignore
 [pull]
     rebase = true
 [status]
@@ -13,18 +15,17 @@
     showPatch = true
 [push]
     default = current
-[mergetool "Kaleidoscope"]
-    cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-    trustexitcode = true
-[merge]
-    tool = Kaleidoscope
-[difftool "Kaleidoscope"]
-    cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-[difftool]
-    prompt = false
-[mergetool]
-    prompt = false
 [diff]
-    tool = Kaleidoscope
-[core]
-	excludesfile = /Users/betraying/.gitignore
+  tool = meld
+[difftool]
+  prompt = false
+[difftool "meld"]
+  trustExitCode = true
+  cmd = open -W -a Meld --args \"$LOCAL\" \"$REMOTE\"
+[merge]
+  tool = meld
+[mergetool]
+  prompt = false
+[mergetool "meld"]
+  trustExitCode = true
+  cmd = open -W -a Meld --args --auto-merge \"$LOCAL\" \"$BASE\" \"$REMOTE\" --output=\"$MERGED\"
