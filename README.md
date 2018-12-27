@@ -9,7 +9,6 @@ git clone https://github.com/betraying/dotfiles ~/.dotfiles &&
 ln -s ~/.dotfiles/.zshrc ~/.zshrc;
 ln -s ~/.dotfiles/.gitconfig ~/.gitconfig;
 ln -s ~/.dotfiles/.gitignore ~/.gitignore;
-
 ```
 
 ## [homebrew](https://github.com/Homebrew/brew)
@@ -20,8 +19,29 @@ brew doctor
 
 ```shell
 brew install git hub ccat jq swiftgen zsh-autosuggestions
-
 ```
+
+<details><summary>duti</summary>
+<p>
+
+```shell
+brew install duti
+```
+
+```shell
+duti -s com.sublimetext.3 .mod all
+duti -s com.sublimetext.3 .dat all
+duti -s com.sublimetext.3 .run all
+duti -s com.sublimetext.3 .tex all
+duti -s com.sublimetext.3 .html all
+duti -s com.sublimetext.3 .json all
+duti -s com.sublimetext.3 .php all
+duti -s com.sublimetext.3 .md all
+duti -s com.sublimetext.3 .txt all
+duti -s com.sublimetext.3 .py all
+```
+</p>
+</details>
 
 ```shell
 brew tap caskroom/cask
