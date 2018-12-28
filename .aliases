@@ -38,7 +38,7 @@ alias gmt='git mergetool'
 alias grb='git rebase'
 
 alias gsh='f() { git show $1 --color | sed -E "s/^([^-+ ]*)[-+ ]/\\1/" | less -r }; f'
-alias gst='git status'
+alias gs='git status'
 alias gsta='git stash'
 
 alias gcl='git clean -fd'
