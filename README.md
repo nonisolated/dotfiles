@@ -35,7 +35,9 @@ brew tap caskroom/cask
 brew cask install sublime-text iterm paw spectacle meld
 brew cask install telegram skype slack google-chrome
 brew cask install 1password vlc transmission teamviewer steam
+```
 
+```shell
 brew tap caskroom/fonts
 brew cask install font-hack-nerd-font
 ```
