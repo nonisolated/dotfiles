@@ -22,31 +22,22 @@ brew install git hub ccat jq swiftgen zsh-autosuggestions
 ```
 
 <details><summary>duti</summary>
-<p>
-
+  
 ```shell
-brew install duti
+brew install duti && 
+duti -s com.sublimetext.3 .json all;
+duti -s com.sublimetext.3 .txt all;
 ```
-
-```shell
-duti -s com.sublimetext.3 .mod all
-duti -s com.sublimetext.3 .dat all
-duti -s com.sublimetext.3 .run all
-duti -s com.sublimetext.3 .tex all
-duti -s com.sublimetext.3 .html all
-duti -s com.sublimetext.3 .json all
-duti -s com.sublimetext.3 .php all
-duti -s com.sublimetext.3 .md all
-duti -s com.sublimetext.3 .txt all
-duti -s com.sublimetext.3 .py all
-```
-</p>
 </details>
 
 ```shell
 brew tap caskroom/cask
-brew cask install sublime-text iterm paw spectacle ksdiff
-brew cask install telegram google-chrome 1password skype slack vlc transmission teamviewer steam
+brew cask install sublime-text iterm paw spectacle meld
+brew cask install telegram skype slack google-chrome
+brew cask install 1password vlc transmission teamviewer steam
+
+brew tap caskroom/fonts
+brew cask install font-hack-nerd-font
 ```
 
 ## [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
@@ -54,21 +45,20 @@ brew cask install telegram google-chrome 1password skype slack vlc transmission 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
-#### [theme](https://github.com/bhilburn/powerlevel9k)
+#### [powerlevel9k](https://github.com/bhilburn/powerlevel9k)
 ```shell
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
-```
-#### [fonts](https://github.com/ryanoasis/nerd-fonts)
-```shell
-brew tap caskroom/fonts
-brew cask install font-hack-nerd-font
 ```
 
 ## [rbenv](https://github.com/rbenv/rbenv)
 ```shell
-brew install rbenv
-rbenv init
+brew install rbenv &&
+rbenv init &&
 curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-doctor | bash
+```
+
+## gems
+```shell
 gem install bundler xcode-install cocoapods fastlane 
 ```
 
