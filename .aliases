@@ -54,4 +54,4 @@ alias gitdir="cd ~/Documents/Git"
 # Common
 
 alias aliases="ccat ~/.dotfiles/.aliases"
-alias stfs="st `pfs`"
+alias cat='ccat'
