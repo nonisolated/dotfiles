@@ -17,15 +17,13 @@
     default = current
 [diff]
   tool = meld
-[difftool]
-  prompt = false
 [difftool "meld"]
+  prompt = false
   trustExitCode = true
-  cmd = open -W -a Meld --args \"$LOCAL\" \"$REMOTE\"
+  cmd = open -W -a Meld --args \"$PWD/$LOCAL\" \"$PWD/$REMOTE\"
 [merge]
   tool = meld
-[mergetool]
-  prompt = false
 [mergetool "meld"]
+  prompt = false
   trustExitCode = true
-  cmd = open -W -a Meld --args --auto-merge \"$LOCAL\" \"$BASE\" \"$REMOTE\" --output=\"$MERGED\"
+  cmd = open -W -a Meld --args --auto-merge \"$PWD/$LOCAL\" \"$PWD/$BASE\" \"$PWD/$REMOTE\" --output=\"$PWD/$MERGED\"
