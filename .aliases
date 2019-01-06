@@ -33,6 +33,7 @@ alias gpl='git pull'
 alias gps='git push'
 
 alias gm='git merge'
+alias gmc='git merge --continue'
 alias gmt='git mergetool'
 
 alias grb='git rebase'
@@ -53,5 +54,5 @@ alias gitdir="cd ~/Documents/Git"
 
 # Common
 
-alias aliases="ccat ~/.dotfiles/.aliases"
 alias cat='ccat'
+alias aliases="cat ~/.dotfiles/.aliases"

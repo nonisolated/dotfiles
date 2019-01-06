@@ -4,7 +4,7 @@
 [github]
     user = betraying
 [core]
-    excludesfile = /Users/betraying/.gitignore
+    excludesfile = ~/.gitignore
 [pull]
     rebase = true
 [status]
