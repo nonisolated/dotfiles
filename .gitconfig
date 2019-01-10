@@ -15,16 +15,3 @@
     showPatch = true
 [push]
     default = current
-[diff]
-  tool = meld
-[difftool "meld"]
-  prompt = false
-  trustExitCode = true
-  cmd = open -W -a Meld --args \"$PWD/$LOCAL\" \"$PWD/$REMOTE\"
-[merge]
-  tool = meld
-[mergetool "meld"]
-  keepBackup = false
-  prompt = false
-  trustExitCode = true
-  cmd = open -W -a Meld --args --auto-merge \"$PWD/$LOCAL\" \"$PWD/$BASE\" \"$PWD/$REMOTE\" --output=\"$PWD/$MERGED\"
