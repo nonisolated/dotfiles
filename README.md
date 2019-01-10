@@ -18,7 +18,7 @@ brew doctor
 ```
 
 ```shell
-brew install git hub ccat jq swiftgen zsh-autosuggestions
+brew install git tig hub ccat jq swiftgen zsh-autosuggestions
 ```
 
 <details><summary>duti</summary>
