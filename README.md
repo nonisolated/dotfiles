@@ -32,7 +32,7 @@ duti -s com.sublimetext.3 .txt all;
 
 ```shell
 brew tap caskroom/cask
-brew cask install sublime-text iterm paw spectacle meld
+brew cask install sublime-text iterm paw spectacle kaleidoscope
 brew cask install spark telegram skype slack google-chrome
 brew cask install 1password vlc transmission teamviewer steam
 ```
