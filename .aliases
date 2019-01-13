@@ -1,5 +1,6 @@
 # Git
 
+alias t='tig'
 alias g='git'
 
 alias ga='git add'
@@ -9,11 +10,9 @@ alias gau='git add --update'
 
 alias grs='git reset'
 
-alias gb='git branch'
-
 alias gco='git checkout'
 
-alias gcp='git cherry-pick'
+alias gb='git branch'
 
 alias gc='git commit -v'
 alias gca='git commit -v -a'
@@ -32,15 +31,21 @@ alias gf='git fetch'
 alias gpl='git pull'
 alias gps='git push'
 
+alias gcp='git cherry-pick'
+
+alias gdt='git difftool'
+
 alias gm='git merge'
 alias gmc='git merge --continue'
 alias gmt='git mergetool'
 
 alias grb='git rebase'
+alias grv='git revert'
 
 alias gsh='f() { git show $1 --color | sed -E "s/^([^-+ ]*)[-+ ]/\\1/" | less -r }; f'
 alias gs='git status'
-alias gsta='git stash'
+
+alias gst='git stash'
 
 alias gcl='git clean -fd'
 alias gpristine='git reset --hard && git clean -dfx'
