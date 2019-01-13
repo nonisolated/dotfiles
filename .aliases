@@ -47,6 +47,8 @@ alias gs='git status'
 
 alias gst='git stash'
 
+alias grm='git remote'
+
 alias gcl='git clean -fd'
 alias gpristine='git reset --hard && git clean -dfx'
 
