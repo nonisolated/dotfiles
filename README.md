@@ -63,14 +63,3 @@ curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-doctor 
 ```shell
 gem install bundler xcode-install cocoapods fastlane 
 ```
-
-## troubleshooting
-Updating gems may fix known issues:
-```
-gem update
-gem update --system
-```
-Removing old gems may help to avoid conficts with versions and fix weird errors:
-```
-gem cleanup
-```
