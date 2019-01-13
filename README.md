@@ -20,19 +20,29 @@ ln -s ~/.dotfiles/.gitignore ~/.gitignore;
 brew install git tig hub ccat jq swiftgen zsh-autosuggestions
 ```
 
-<details><summary>duti</summary>
-  
 ```shell
 brew install duti && duti -s com.sublimetext.3 .json all; duti -s com.sublimetext.3 .txt all;
 ```
-</details>
+
+#### [cask](https://github.com/Homebrew/homebrew-cask)
 
 ```shell
 brew tap caskroom/cask
+```
+
+```shell
 brew cask install sublime-text iterm paw spectacle kaleidoscope
+```
+
+```shell
 brew cask install spark telegram skype slack google-chrome
+```
+
+```shell
 brew cask install 1password vlc transmission teamviewer steam
 ```
+
+#### [cask-fonts](https://github.com/Homebrew/homebrew-cask-fonts)
 
 ```shell
 brew tap caskroom/fonts && brew cask install font-hack-nerd-font
