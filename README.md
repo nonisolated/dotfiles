@@ -13,8 +13,7 @@ ln -s ~/.dotfiles/.gitignore ~/.gitignore;
 
 ## [homebrew](https://github.com/Homebrew/brew)
 ```shell
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew doctor
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" && brew doctor
 ```
 
 ```shell
@@ -24,9 +23,7 @@ brew install git tig hub ccat jq swiftgen zsh-autosuggestions
 <details><summary>duti</summary>
   
 ```shell
-brew install duti && 
-duti -s com.sublimetext.3 .json all;
-duti -s com.sublimetext.3 .txt all;
+brew install duti && duti -s com.sublimetext.3 .json all; duti -s com.sublimetext.3 .txt all;
 ```
 </details>
 
@@ -38,8 +35,7 @@ brew cask install 1password vlc transmission teamviewer steam
 ```
 
 ```shell
-brew tap caskroom/fonts
-brew cask install font-hack-nerd-font
+brew tap caskroom/fonts && brew cask install font-hack-nerd-font
 ```
 
 ## [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
@@ -54,9 +50,7 @@ git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/theme
 
 ## [rbenv](https://github.com/rbenv/rbenv)
 ```shell
-brew install rbenv &&
-rbenv init &&
-curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-doctor | bash
+brew install rbenv && rbenv init && curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-doctor | bash
 ```
 
 ## gems
