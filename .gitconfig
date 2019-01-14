@@ -11,12 +11,13 @@
     showStash = true
 [rebase]
     autostash = true
+    autosquash = true
 [stash]
     showPatch = true
 [push]
     default = current
 [difftool "Kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+    cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [difftool]
 	prompt = false
 [diff]
