@@ -32,21 +32,40 @@ brew tap caskroom/cask
 ```
 
 ```shell
-brew cask install sublime-text iterm paw spectacle kaleidoscope
+brew cask install sublime-text iterm paw spectacle
 ```
 
 ```shell
-brew cask install spark telegram skype slack google-chrome
+brew cask install skype google-chrome
 ```
 
 ```shell
-brew cask install 1password vlc transmission teamviewer steam
+brew cask install vlc transmission teamviewer steam
 ```
 
 #### [cask-fonts](https://github.com/Homebrew/homebrew-cask-fonts)
 
 ```shell
 brew tap caskroom/fonts && brew cask install font-hack-nerd-font
+```
+
+### [mas](https://github.com/mas-cli/mas)
+
+```shell
+brew install mas
+```
+
+<details>
+  <summary>troubleshooting</summary>
+  
+```shell
+sudo mkdir /usr/local/Frameworks && sudo chown $(whoami):admin /usr/local/Frameworks
+```
+</details>
+
+```shell
+mas install 1333542190  1176895641  747648890   803453959   587512244     646295438           1438520258  1397180934
+########### 1Password   Spark       Telegram    Slack       Kaleidoscope  RAR Extractor Lite  JSONViewer  Dark Mode for Safari
 ```
 
 ## [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
