@@ -7,6 +7,7 @@ xcode-select --install
 ```shell
 git clone https://github.com/betraying/dotfiles ~/.dotfiles &&
 ln -s ~/.dotfiles/.zshrc ~/.zshrc;
+ln -s ~/.dotfiles/.tigrc ~/.tigrc;
 ln -s ~/.dotfiles/.gitconfig ~/.gitconfig;
 ln -s ~/.dotfiles/.gitignore ~/.gitignore;
 ```
