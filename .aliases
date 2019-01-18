@@ -25,7 +25,7 @@ alias gdw='git diff --word-diff $1'
 alias gds='f() { git diff --staged --color $1 | sed -E "s/^([^-+ ]*)[-+ ]/\\1/" | less -r }; f'
 alias gdsw='git diff --staged --word-diff $1'
 
-alias gl='git log --pretty=format:"%C(yellow)%h %C(bold yellow)%ad %C(bold blue)| %C(reset)%s%C(green)%d %C(bold blue)[%an]" --graph --date=format:"%y-%m-%d %I:%M %p"'
+alias gl='git log --pretty=format:"%C(yellow)%h %C(cyan)%ad %C(bold yellow)| %C(reset)%s%C(green)%d %C(bold blue)[%an]" --graph --date=format:"%y-%m-%d %I:%M %p"'
 
 alias gf='git fetch'
 alias gpl='git pull'
