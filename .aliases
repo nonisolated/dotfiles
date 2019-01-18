@@ -61,5 +61,6 @@ alias gitdir="cd ~/Documents/Git"
 
 # Common
 
+alias reload="source ~/.zshrc"
 alias cat='ccat'
 alias aliases="cat ~/.dotfiles/.aliases"
