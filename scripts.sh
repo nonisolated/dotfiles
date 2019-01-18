@@ -11,6 +11,10 @@ function quarantine() {
 	sudo xattr -rd com.apple.quarantine /Applications/"$1".app
 }
 
+function upgrade_dotfiles() {
+	dotfiles && gpl && cd -
+}
+
 function open_applications() {
 	case "$@" in
     "home")
