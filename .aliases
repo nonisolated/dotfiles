@@ -50,9 +50,13 @@ alias gst='git stash'
 alias grm='git remote'
 
 alias gcl='git clean -fd'
-alias gpristine='git reset --hard && git clean -dfx'
 
 alias git=hub
+
+# Git combinations
+
+alias gpls='gpl && gps'
+alias gpristine='git reset --hard && git clean -dfx'
 
 # Folders
 
