@@ -1,23 +1,24 @@
 [user]
-    name = Dmitry Baginsky
-    email = dmitri.baginski@gmail.com
+	name = Dmitry Baginsky
+	email = dmitri.baginski@gmail.com
 [github]
-    user = betraying
+	user = betraying
 [core]
-    excludesfile = ~/.gitignore
+	excludesfile = ~/.gitignore
 [pull]
-    rebase = true
+	rebase = true
 [status]
-    showStash = true
+	showStash = true
 [rebase]
-    autostash = true
-    autosquash = true
+	autostash = true
+	autosquash = true
+	abbreviateCommands = true
 [stash]
-    showPatch = true
+	showPatch = true
 [push]
-    default = current
+	default = current
 [difftool "Kaleidoscope"]
-    cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [difftool]
 	prompt = false
 [diff]
