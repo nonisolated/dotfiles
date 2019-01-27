@@ -10,7 +10,7 @@ alias gau='git add --update'
 
 alias grs='git reset'
 
-alias gco='git checkout'
+alias go='git checkout'
 
 alias gb='git branch'
 
