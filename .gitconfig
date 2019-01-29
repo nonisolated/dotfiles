@@ -5,6 +5,8 @@
 	user = betraying
 [core]
 	excludesfile = ~/.gitignore
+[rerere]
+	enabled = true
 [pull]
 	rebase = true
 [status]
@@ -29,3 +31,4 @@
 	prompt = false
 [merge]
 	tool = Kaleidoscope
+
