@@ -1,60 +1,38 @@
 # Git
 
-alias t='tig'
 alias g='git'
-
 alias ga='git add'
+alias grs='git reset'
+alias go='git checkout'
+alias gb='git branch'
+alias gf='git fetch'
+alias gpl='git pull'
+alias gps='git push'
+alias gcp='git cherry-pick'
+alias gdt='git difftool'
+alias gm='git merge'
+alias gmt='git mergetool'
+alias grb='git rebase'
+alias grv='git revert'
+alias gs='git status'
+alias gst='git stash'
+alias grm='git remote'
+
 alias gaa='git add --all'
 alias gap='git add --patch'
 alias gau='git add --update'
-
-alias grs='git reset'
-
-alias go='git checkout'
-
-alias gb='git branch'
-
 alias gc='git commit -v'
 alias gca='git commit -v -a'
 alias gcm='git commit -m'
 alias gcam='git commit -am'
-
+alias gl='git log --pretty=format:"%C(yellow)%h %C(cyan)%ad %C(bold yellow)| %C(reset)%s%C(green)%d %C(bold blue)[%an]" --graph --date=format:"%y-%m-%d %I:%M %p"'
+alias gpsf='git push --force-with-lease'
 alias gd='f() { git diff --color $1 | sed -E "s/^([^-+ ]*)[-+ ]/\\1/" | less -r }; f'
 alias gdw='git diff --word-diff $1'
-
 alias gds='f() { git diff --staged --color $1 | sed -E "s/^([^-+ ]*)[-+ ]/\\1/" | less -r }; f'
 alias gdsw='git diff --staged --word-diff $1'
-
-alias gl='git log --pretty=format:"%C(yellow)%h %C(cyan)%ad %C(bold yellow)| %C(reset)%s%C(green)%d %C(bold blue)[%an]" --graph --date=format:"%y-%m-%d %I:%M %p"'
-
-alias gf='git fetch'
-alias gpl='git pull'
-alias gps='git push'
-alias gpsf='git push --force-with-lease'
-
-alias gcp='git cherry-pick'
-
-alias gdt='git difftool'
-
-alias gm='git merge'
-alias gmc='git merge --continue'
-alias gmt='git mergetool'
-
-alias grb='git rebase'
-alias grv='git revert'
-
 alias gsh='f() { git show $1 --color | sed -E "s/^([^-+ ]*)[-+ ]/\\1/" | less -r }; f'
-alias gs='git status'
-
-alias gst='git stash'
-
-alias grm='git remote'
-
 alias gcl='git clean -fd'
-
-alias git=hub
-
-# Git combinations
 
 alias gpls='gpl && gps'
 alias gpristine='git reset --hard && git clean -dfx'
@@ -66,6 +44,8 @@ alias gitdir="cd ~/Documents/Git"
 
 # Common
 
+alias git=hub
+alias t='tig'
 alias reload="source ~/.zshrc"
 alias cat='ccat'
 alias aliases="cat ~/.dotfiles/.aliases"
