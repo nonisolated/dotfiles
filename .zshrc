@@ -24,6 +24,6 @@ source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOME/.dotfiles/.aliases
 source $HOME/.dotfiles/scripts.sh
 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=10'
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=15'
 
 eval "$(rbenv init -)"
