@@ -9,7 +9,6 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_MODE="nerdfont-complete"
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
 POWERLEVEL9K_SHORTEN_STRATEGY="truncate_to_last"
-POWERLEVEL9K_VCS_ACTIONFORMAT_FOREGROUND=black
 POWERLEVEL9K_HIDE_BRANCH_ICON=true
 
 plugins=( xcode sublime osx bundler iterm2 )
