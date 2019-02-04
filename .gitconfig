@@ -32,7 +32,7 @@
 [merge]
 	tool = Kaleidoscope
 [tig "color"]
-	cursor = yellow default reverse
+	cursor = default default reverse
 	id = yellow default
-	title-focus = green default reverse
+	title-focus = black green reverse
 	author = white default
