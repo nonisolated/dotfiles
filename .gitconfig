@@ -36,3 +36,4 @@
 	id = yellow default
 	title-focus = black green reverse
 	author = white default
+	date = cyan default
