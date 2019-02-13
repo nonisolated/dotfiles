@@ -30,6 +30,7 @@ alias gd='f() { git diff --color $1 | sed -E "s/^([^-+ ]*)[-+ ]/\\1/" | less -r 
 alias gdw='git diff --word-diff $1'
 alias gds='f() { git diff --staged --color $1 | sed -E "s/^([^-+ ]*)[-+ ]/\\1/" | less -r }; f'
 alias gdsw='git diff --staged --word-diff $1'
+alias gdts='git difftool --staged'
 alias gsh='f() { git show $1 --color | sed -E "s/^([^-+ ]*)[-+ ]/\\1/" | less -r }; f'
 alias gcl='git clean -fd'
 
