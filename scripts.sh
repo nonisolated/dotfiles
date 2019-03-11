@@ -1,5 +1,9 @@
 #!/bin/sh
 
+function url() {
+	curl -X GET --compressed $@ | jq
+}
+
 function ru() {
 	lang=$LANG
 	export LANG=ru_RU.UTF-8
