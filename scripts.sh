@@ -19,6 +19,13 @@ function upgrade_dotfiles() {
 	dotfiles && gpl && cd -
 }
 
+function upgrade_all() {
+	upgrade_oh_my_zsh; 
+	brew upgrade; 
+	cd ~/.oh-my-zsh/custom/themes/powerlevel9k && gpl && cd;
+	upgrade_dotfiles;
+}
+
 function open_applications() {
 	case "$@" in
     "home")
