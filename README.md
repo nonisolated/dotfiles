@@ -35,7 +35,7 @@ brew cask install skype google-chrome
 ```
 
 ```shell
-brew cask install vlc transmission teamviewer steam
+brew cask install alfred vlc transmission teamviewer steam
 ```
 
 #### [cask-fonts](https://github.com/Homebrew/homebrew-cask-fonts)
