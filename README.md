@@ -65,7 +65,9 @@ mas install 1333542190   1176895641   747648890   803453959   587512244     6462
 
 ## [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 ```shell
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" && ln -s ~/.dotfiles/.zshrc ~/.zshrc
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" 
+&& rm ~/.zshrc
+&& ln -s ~/.dotfiles/.zshrc ~/.zshrc
 ```
 
 #### [powerlevel9k](https://github.com/bhilburn/powerlevel9k)
