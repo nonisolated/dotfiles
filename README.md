@@ -28,11 +28,7 @@ brew install duti && duti -s com.sublimetext.3 .json all; duti -s com.sublimetex
 #### [cask](https://github.com/Homebrew/homebrew-cask)
 
 ```shell
-brew tap caskroom/cask
-```
-
-```shell
-brew cask install sublime-text iterm paw spectacle
+brew cask install sublime-text iterm2 paw spectacle
 ```
 
 ```shell
