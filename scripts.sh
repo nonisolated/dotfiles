@@ -23,6 +23,7 @@ function upgrade_all() {
 	upgrade_oh_my_zsh; 
 	brew upgrade; 
 	cd ~/.oh-my-zsh/custom/themes/powerlevel9k && gpl && cd;
+	mas upgrade;
 	upgrade_dotfiles;
 }
 
