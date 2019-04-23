@@ -27,19 +27,6 @@ function upgrade_all() {
 	upgrade_dotfiles;
 }
 
-function open_applications() {
-	case "$@" in
-    "home")
-        declare -a apps=("Safari" "Spark" "Telegram" "Mate Translate" "Spectacle") ;;
-    "work")
-        declare -a apps=("Safari" "Spark" "Telegram" "Skype" "Slack" "/Applications/Xcode.app" "Paw" "Dropbox" "Mate Translate" "Spectacle") ;;
-	esac
-
-	for app in "${apps[@]}"; do
-		open -ja "$app"
-	done
-}
-
 #https://github.com/niklasberglund/xcode-clean.sh
 function xcode_clean() {
 	text_magenta=$(tput setaf 5)
