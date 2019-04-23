@@ -59,6 +59,7 @@
 					<string>/Applications/Safari.app</string>
 					<string>/Applications/Spark.app</string>
 					<string>/Applications/Telegram.app</string>
+					<string>/Applications/iTerm.app</string>
 				</array>
 				<key>toggle</key>
 				<true/>
