@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>AlternateMouseScroll</key>
+	<true/>
 	<key>AppleAntiAliasingThreshold</key>
 	<integer>1</integer>
 	<key>AppleScrollAnimationEnabled</key>
@@ -1282,6 +1284,8 @@
 	<true/>
 	<key>NoSyncInstallationId</key>
 	<string>2E39FC3C-4A60-49C1-A596-87C408E6FBF4</string>
+	<key>NoSyncPermissionToShowTip</key>
+	<false/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>577615800.02870202</real>
 	<key>PointerActions</key>
@@ -1328,7 +1332,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-04-22T13:29:18Z</date>
+	<date>2019-04-25T20:23:27Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ThreeFingerEmulates</key>
