@@ -39,7 +39,6 @@ alias gpls='gpl && gps'
 alias glf='f() { find . -type f -name "*$1*" -exec git log -p {} \; -print -quit }; f'
 alias gpristine='git reset --hard && git clean -dfx'
 
-
 # Folders
 
 alias dotfiles="cd ~/.dotfiles"

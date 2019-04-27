@@ -40,8 +40,8 @@ plugins=( xcode sublime osx bundler iterm2 )
 source $ZSH/oh-my-zsh.sh
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-source $HOME/.dotfiles/.aliases
-source $HOME/.dotfiles/scripts.sh
+source $HOME/.dotfiles/aliases
+source $HOME/.dotfiles/scripts
 
 POWERLEVEL9K_HOME_SUB_ICON="$(print_icon "HOME_SUB_ICON") "
 
