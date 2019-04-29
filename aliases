@@ -51,4 +51,4 @@ alias git=hub
 alias t='tig'
 alias reload="source ~/.zshrc"
 alias cat='ccat'
-alias aliases="cat ~/.dotfiles/.aliases"
+alias aliases="cat ~/.dotfiles/aliases"
