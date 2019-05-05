@@ -8,34 +8,22 @@ xcode-select --install
 git clone https://github.com/betraying/dotfiles ~/.dotfiles &&
 ln -s ~/.dotfiles/.tigrc ~/.tigrc;
 ln -s ~/.dotfiles/.gitconfig ~/.gitconfig;
-ln -s ~/.dotfiles/.gitignore ~/.gitignore;
+ln -s ~/.dotfiles/.gitignore ~/.gitignore
 ```
 
 ## [homebrew](https://github.com/Homebrew/brew)
 ```shell
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" && brew doctor
-```
-
-```shell
-brew install git tig hub ccat jq swiftgen zsh-autosuggestions
-```
-
-```shell
-brew install duti && duti -s com.sublimetext.3 .json all; duti -s com.sublimetext.3 .txt all;
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" &&
+brew doctor &&
+brew install git tig hub ccat jq swiftgen zsh-autosuggestions &&
+brew install duti && duti -s com.sublimetext.3 .json all; duti -s com.sublimetext.3 .txt all
 ```
 
 #### [cask](https://github.com/Homebrew/homebrew-cask)
 
 ```shell
-brew cask install sublime-text iterm2 paw spectacle
-```
-
-```shell
-brew cask install skype google-chrome
-```
-
-```shell
-brew cask install alfred vlc transmission teamviewer steam
+brew cask install alfred sublime-text iterm2 paw spectacle &&
+brew cask install skype google-chrome vlc transmission teamviewer steam
 ```
 
 #### [cask-fonts](https://github.com/Homebrew/homebrew-cask-fonts)
@@ -65,9 +53,9 @@ mas install 1333542190   1176895641   747648890   803453959   587512244     6462
 
 ## [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 ```shell
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" 
-&& rm ~/.zshrc
-&& ln -s ~/.dotfiles/.zshrc ~/.zshrc
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" && 
+rm ~/.zshrc && 
+ln -s ~/.dotfiles/.zshrc ~/.zshrc
 ```
 
 #### [powerlevel9k](https://github.com/bhilburn/powerlevel9k)
