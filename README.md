@@ -68,7 +68,6 @@ git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/theme
 brew install rbenv && rbenv init && curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-doctor | bash
 ```
 
-## gems
 ```shell
 gem install bundler xcode-install cocoapods fastlane 
 ```
