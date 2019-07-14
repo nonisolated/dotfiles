@@ -22,7 +22,7 @@ brew install duti && duti -s com.sublimetext.3 .json all; duti -s com.sublimetex
 #### [cask](https://github.com/Homebrew/homebrew-cask)
 
 ```shell
-brew cask install alfred sublime-text iterm2 paw spectacle &&
+brew cask install alfred sublime-text iterm2 paw &&
 brew cask install skype google-chrome vlc transmission teamviewer steam
 ```
 
@@ -47,8 +47,8 @@ sudo mkdir /usr/local/Frameworks && sudo chown $(whoami):admin /usr/local/Framew
 </details>
 
 ```shell
-mas install 1333542190   1176895641   747648890   803453959   587512244     646295438           1438520258   1397180934
-########### 1Password    Spark        Telegram    Slack       Kaleidoscope  RAR Extractor Lite  JSONViewer   Dark Mode for Safari
+mas install 1333542190   441258766   1176895641   747648890   803453959   587512244     646295438           1438520258   1397180934
+########### 1Password    Magnet      Spark        Telegram    Slack       Kaleidoscope  RAR Extractor Lite  JSONViewer   Dark Mode for Safari
 ```
 
 ## [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
