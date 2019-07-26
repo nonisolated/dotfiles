@@ -15,40 +15,7 @@ ln -s ~/.dotfiles/.gitignore ~/.gitignore
 ```shell
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" &&
 brew doctor &&
-brew install git tig hub ccat jq swiftgen zsh-autosuggestions &&
-brew install duti && duti -s com.sublimetext.3 .json all; duti -s com.sublimetext.3 .txt all
-```
-
-#### [cask](https://github.com/Homebrew/homebrew-cask)
-
-```shell
-brew cask install alfred sublime-text iterm2 paw &&
-brew cask install skype google-chrome vlc transmission teamviewer steam
-```
-
-#### [cask-fonts](https://github.com/Homebrew/homebrew-cask-fonts)
-
-```shell
-brew tap caskroom/fonts && brew cask install font-hack-nerd-font
-```
-
-### [mas](https://github.com/mas-cli/mas)
-
-```shell
-brew install mas
-```
-
-<details>
-  <summary>troubleshooting</summary>
-  
-```shell
-sudo mkdir /usr/local/Frameworks && sudo chown $(whoami):admin /usr/local/Frameworks
-```
-</details>
-
-```shell
-mas install 1333542190   441258766   937984704     1176895641   747648890   803453959   587512244      646295438            1438520258   1397180934
-########### 1Password    Magnet      Amphetamine   Spark        Telegram    Slack       Kaleidoscope   RAR Extractor Lite   JSONViewer   Dark Mode for Safari
+brew bundle
 ```
 
 ## [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
@@ -65,7 +32,7 @@ git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/theme
 
 ## [rbenv](https://github.com/rbenv/rbenv)
 ```shell
-brew install rbenv && rbenv init && curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-doctor | bash
+rbenv init && curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-doctor | bash
 ```
 
 ```shell
