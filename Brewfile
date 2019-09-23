@@ -30,6 +30,7 @@ cask "teamviewer"
 cask "transmission"
 cask "twitch"
 cask "vlc"
+casl "appcleaner"
 
 # Mas
 brew "mas"
