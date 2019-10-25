@@ -14,8 +14,8 @@ ln -s ~/.dotfiles/.gitignore ~/.gitignore
 ## [homebrew](https://github.com/Homebrew/brew)
 ```shell
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" &&
-brew doctor &&
-brew bundle
+brew doctor;
+(cd ~/.dotfiles; brew bundle)
 ```
 
 ## [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
