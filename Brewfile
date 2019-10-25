@@ -1,5 +1,5 @@
 # Tap
-tap "caskroom/fonts"
+tap "homebrew/cask-fonts"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/core"
@@ -16,7 +16,7 @@ brew "rbenv"
 brew "swiftgen"
 brew "swiftlint"
 brew "zsh-autosuggestions"
-cask "caskroom/fonts/font-hack-nerd-font"
+cask "font-hack-nerd-font"
 
 # App
 cask "alfred"
