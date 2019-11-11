@@ -35,6 +35,7 @@ alias gdts='git difftool --staged'
 alias gdt='f() { rev=${1:-HEAD}; git difftool $rev~1 $rev; }; f $1'
 alias gsh='f() { git show $1 --color | sed -E "s/^([^-+ ]*)[-+ ]/\\1/" | less -r }; f'
 alias gcl='git clean -fd'
+alias grf='git reflog'
 
 alias glf='f() { find . -type f -name "*$1*" -exec git log -p {} \; -print -quit }; f'
 alias gpristine='git reset --hard && git clean -dfx'
