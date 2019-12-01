@@ -1,25 +1,25 @@
 #!/bin/sh
 
-function url() {
+url() {
 	curl -X GET --compressed $@ | jq
 }
 
-function ru() {
+ru() {
 	lang=$LANG
 	export LANG=ru_RU.UTF-8
 	eval "$1"
 	export LANG=$lang
 }
 
-function quarantine() {
+quarantine() {
 	sudo xattr -rd com.apple.quarantine /Applications/"$1".app
 }
 
-function upgrade_dotfiles() {
+upgrade_dotfiles() {
 	dotfiles && gpl && cd -
 }
 
-function upgrade_all() {
+upgrade_all() {
 	upgrade_oh_my_zsh; 
 	brew upgrade; 
 	echo 'Updating powerlevel9k'
