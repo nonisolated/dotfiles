@@ -42,7 +42,7 @@ source $ZSH/oh-my-zsh.sh
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 source $HOME/.dotfiles/aliases
-source $HOME/.dotfiles/scripts
+source $HOME/.dotfiles/functions
 
 POWERLEVEL9K_HOME_SUB_ICON="$(print_icon "HOME_SUB_ICON") "
 
