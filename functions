@@ -1,0 +1,29 @@
+#!/bin/sh
+
+function url() {
+	curl -X GET --compressed $@ | jq
+}
+
+function ru() {
+	lang=$LANG
+	export LANG=ru_RU.UTF-8
+	eval "$1"
+	export LANG=$lang
+}
+
+function quarantine() {
+	sudo xattr -rd com.apple.quarantine /Applications/"$1".app
+}
+
+function upgrade_dotfiles() {
+	dotfiles && gpl && cd -
+}
+
+function upgrade_all() {
+	upgrade_oh_my_zsh; 
+	brew upgrade; 
+	echo 'Updating powerlevel9k'
+	cd ~/.oh-my-zsh/custom/themes/powerlevel9k && gpl && cd -;
+	echo 'Updating dotfiles'
+	upgrade_dotfiles;
+}
