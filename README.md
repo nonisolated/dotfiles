@@ -25,16 +25,7 @@ rm ~/.zshrc &&
 ln -s ~/.dotfiles/.zshrc ~/.zshrc
 ```
 
-#### [powerlevel9k](https://github.com/bhilburn/powerlevel9k)
+### [powerlevel9k](https://github.com/bhilburn/powerlevel9k)
 ```shell
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
-```
-
-## [rbenv](https://github.com/rbenv/rbenv)
-```shell
-rbenv init && curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-doctor | bash
-```
-
-```shell
-gem install bundler xcode-install cocoapods fastlane 
 ```

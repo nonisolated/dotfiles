@@ -16,6 +16,7 @@ brew "rbenv"
 brew "swiftgen"
 brew "swiftlint"
 brew "zsh-autosuggestions"
+brew "duti"
 cask "font-hack-nerd-font"
 
 # App
