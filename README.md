@@ -1,5 +1,3 @@
-# dotfiles
-
 ## clone
 ```shell
 xcode-select --install
