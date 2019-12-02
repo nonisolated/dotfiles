@@ -4,5 +4,7 @@ set main-view-date = custom
 set main-view-date-format = "%y-%m-%d %I:%M %p"
 
 bind stash D !?git stash drop %(stash)
+bind stash A !?git stash apply %(stash)
+
 bind generic c !git checkout %(commit)
 bind main R !git rebase -i %(commit)^
