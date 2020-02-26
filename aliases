@@ -16,6 +16,8 @@ alias grv='git revert'
 alias gs='git status'
 alias gst='git stash'
 alias grm='git remote'
+alias gsw='git switch'
+alias grst='git restore'
 
 alias gaa='git add --all'
 alias gap='git add --patch'
