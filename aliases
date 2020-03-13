@@ -39,7 +39,7 @@ alias gsh='f() { git show $1 --color | sed -E "s/^([^-+ ]*)[-+ ]/\\1/" | less -r
 alias gcl='git clean -fd'
 alias grf='git reflog'
 
-alias glf='f() { find . -type f -name "*$1*" -exec git log -p {} \; -print -quit }; f'
+alias glpf='f() { find . -type f -name "*$1*" -exec git log -p {} \; -print -quit }; f'
 alias gpristine='git reset --hard && git clean -dfx'
 
 alias grmignored='git ls-files --ignored --exclude-standard -z | xargs -0 git rm --cached'
