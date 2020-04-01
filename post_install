@@ -1,5 +1,16 @@
 #!/bin/sh
 
+# oh-my-zsh
+open -a iTerm
+sleep 2
+rm ~/.zshrc
+
+# symlink dotfiles
+ln -s ~/.dotfiles/.tigrc ~/.tigrc
+ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
+ln -s ~/.dotfiles/.gitignore ~/.gitignore
+ln -s ~/.dotfiles/.zshrc ~/.zshrc
+
 # homebrew
 brew doctor
 (cd ~/.dotfiles; brew bundle)
@@ -17,10 +28,6 @@ duti -s com.sublimetext.3 .md all
 duti -s com.sublimetext.3 .txt all
 duti -s com.sublimetext.3 .py all
 
-# oh-my-zsh
-exec zsh
-rm ~/.zshrc
-
 # rbenv
 rbenv init
 curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-doctor | bash
@@ -31,8 +38,11 @@ rbenv global $version
 read -p "Gems to install: " gems
 gem install $gems
 
-# symlink dotfiles
-ln -s ~/.dotfiles/.tigrc ~/.tigrc
-ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
-ln -s ~/.dotfiles/.gitignore ~/.gitignore
-ln -s ~/.dotfiles/.zshrc ~/.zshrc
+#configure git
+echo 'Git:'
+read -p "Name: " name
+git config --global user.name $name
+read -p "Email: " email
+git config --global user.email $email
+read -p "Github user: " user
+git config --global github.user $user
