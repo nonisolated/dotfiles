@@ -5,6 +5,9 @@ xcode-select --install
 ```shell
 git clone https://github.com/betraying/dotfiles ~/.dotfiles
 ```
+```shell
+git clone https://github.com/betraying/dotfiles_private ~/.dotfiles/private
+```
 
 ## [homebrew](https://github.com/Homebrew/brew)
 ```shell
