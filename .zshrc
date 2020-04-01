@@ -1,5 +1,4 @@
 export ZSH="/Users/$(whoami)/.oh-my-zsh"
-export XCODE_INSTALL_USER="dmitri.baginski@gmail.com"
 
 ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste accept-line)
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=15'
@@ -40,6 +39,8 @@ plugins=( xcode sublime osx bundler iterm2 )
 
 source $ZSH/oh-my-zsh.sh
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+source $HOME/.dotfiles/private/.zshrc
 
 source $HOME/.dotfiles/aliases
 source $HOME/.dotfiles/functions
