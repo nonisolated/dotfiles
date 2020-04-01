@@ -28,7 +28,8 @@ rbenv install --list
 read -p "Ruby version: " version
 rbenv install $version
 rbenv global $version
-gem install bundler fastlane 
+read -p "Gems to install: " gems
+gem install $gems
 
 # symlink dotfiles
 ln -s ~/.dotfiles/.tigrc ~/.tigrc
