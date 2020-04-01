@@ -1,41 +1,31 @@
-# Tap
-tap "homebrew/cask-fonts"
 tap "homebrew/bundle"
 tap "homebrew/cask"
+tap "homebrew/cask-fonts"
 tap "homebrew/core"
-
-# Git
-brew "git"
-brew "tig"
-brew "hub"
-
-# Utility
 brew "ccat"
+brew "chisel"
+brew "duti"
+brew "git"
+brew "hub"
 brew "jq"
+brew "mas"
+brew "midnight-commander"
 brew "rbenv"
 brew "swiftgen"
 brew "swiftlint"
+brew "tig"
 brew "zsh-autosuggestions"
-brew "duti"
-cask "font-hack-nerd-font"
-
-# App
 cask "alfred"
-cask "daisydisk"
+cask "font-hack-nerd-font"
+cask "google-chrome"
 cask "iterm2"
 cask "paw"
-cask "sublime-text"
-cask "appcleaner"
-cask "transmission"
 cask "skype"
-cask "google-chrome"
-cask "teamviewer"
-cask "vlc"
 cask "steam"
+cask "sublime-text"
+cask "teamviewer"
+cask "transmission"
 cask "twitch"
-
-# Mas
-brew "mas"
 mas "1Password 7", id: 1333542190
 mas "AdGuard for Safari", id: 1440147259
 mas "Amphetamine", id: 937984704
