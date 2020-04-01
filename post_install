@@ -24,8 +24,11 @@ rm ~/.zshrc
 # rbenv
 rbenv init
 curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-doctor | bash
-gem install bundler
-gem install fastlane 
+rbenv install --list
+read -p "Ruby version: " version
+rbenv install $version
+rbenv global $version
+gem install bundler fastlane 
 
 # symlink dotfiles
 ln -s ~/.dotfiles/.tigrc ~/.tigrc
