@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 export ZSH="/Users/$(whoami)/.oh-my-zsh"
 
 ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste accept-line)
@@ -5,35 +12,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=15'
 DEFAULT_USER=$(whoami)
 unsetopt BEEP
 
-ZSH_THEME="powerlevel9k/powerlevel9k"
-
-POWERLEVEL9K_MODE="nerdfont-complete"
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
-POWERLEVEL9K_SHORTEN_STRATEGY="truncate_to_last"
-POWERLEVEL9K_HIDE_BRANCH_ICON=true
-
-# DIR
-POWERLEVEL9K_DIR_ETC_BACKGROUND=none
-POWERLEVEL9K_DIR_ETC_FOREGROUND=red
-POWERLEVEL9K_DIR_HOME_BACKGROUND=none
-POWERLEVEL9K_DIR_HOME_FOREGROUND=magenta
-POWERLEVEL9K_DIR_DEFAULT_BACKGROUND=none
-POWERLEVEL9K_DIR_DEFAULT_FOREGROUND=red
-POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND=none
-POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND=cyan
-
-# VCS
-POWERLEVEL9K_VCS_CLEAN_BACKGROUND=none
-POWERLEVEL9K_VCS_CLEAN_FOREGROUND=green
-POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND=none
-POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND=red
-POWERLEVEL9K_VCS_MODIFIED_BACKGROUND=none
-POWERLEVEL9K_VCS_MODIFIED_FOREGROUND=yellow
-
-# SEPARATOR
-POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=" %F{245}:"
-POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR=' '
-POWERLEVEL9K_WHITESPACE_BETWEEN_LEFT_SEGMENTS=''
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 plugins=( xcode sublime osx bundler iterm2 )
 
@@ -45,6 +24,7 @@ source $HOME/.dotfiles/private/.zshrc
 source $HOME/.dotfiles/aliases
 source $HOME/.dotfiles/functions
 
-POWERLEVEL9K_HOME_SUB_ICON="$(print_icon "HOME_SUB_ICON") "
-
 eval "$(rbenv init -)"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

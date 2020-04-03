@@ -22,8 +22,8 @@ upgrade_dotfiles() {
 upgrade_all() {
 	upgrade_oh_my_zsh; 
 	brew upgrade; 
-	echo 'Updating powerlevel9k'
-	cd ~/.oh-my-zsh/custom/themes/powerlevel9k && gpl && cd -;
+	echo 'Updating powerlevel10k'
+	git -C $ZSH_CUSTOM/themes/powerlevel10k pull
 	echo 'Updating dotfiles'
 	upgrade_dotfiles;
 }

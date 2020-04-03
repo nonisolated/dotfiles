@@ -17,8 +17,8 @@ open -a iTerm --hide
 sleep 1
 rm ~/.zshrc
 
-# powerlevel9k
-git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+# powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 
 # duti
 echo "com.sublimetext.3   public.plain-text all" | duti

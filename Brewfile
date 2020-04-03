@@ -2,10 +2,9 @@ tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/core"
-brew "duti"
 brew "ccat"
 brew "chisel"
-brew "git"
+brew "duti"
 brew "hub"
 brew "jq"
 brew "mas"
@@ -14,15 +13,16 @@ brew "rbenv"
 brew "swiftgen"
 brew "swiftlint"
 brew "tig"
+brew "todo-txt"
 brew "zsh-autosuggestions"
-cask "sublime-text"
 cask "alfred"
-cask "font-hack-nerd-font"
 cask "google-chrome"
+cask "iina"
 cask "iterm2"
 cask "paw"
 cask "skype"
 cask "steam"
+cask "sublime-text"
 cask "teamviewer"
 cask "transmission"
 cask "twitch"
@@ -30,6 +30,7 @@ mas "1Password 7", id: 1333542190
 mas "AdGuard for Safari", id: 1440147259
 mas "Amphetamine", id: 937984704
 mas "Dark Mode for Safari", id: 1397180934
+mas "DevCleaner", id: 1388020431
 mas "JSONViewer", id: 1438520258
 mas "Kaleidoscope", id: 587512244
 mas "Magnet", id: 441258766
