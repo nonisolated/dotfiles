@@ -43,7 +43,6 @@
     command_execution_time  # duration of the last command
     rbenv
     midnight_commander
-    todo
   )
 
   # Defines character set used by powerlevel10k. It's best to let `p10k configure` set it for you.
