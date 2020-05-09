@@ -48,4 +48,4 @@ git config --global user.email $email
 read -p "Github user: " github_user
 git config --global github.user $github_user
 
-git clone https://github.com/github_user/dotfiles_private ~/.dotfiles/private
+git clone https://github.com/$github_user/dotfiles_private ~/.dotfiles/private
