@@ -30,6 +30,7 @@ cask "teamviewer"
 cask "transmission"
 cask "twitch"
 cask "windscribe"
+cask "ksdiff"
 mas "1Password 7", id: 1333542190
 mas "AdGuard for Safari", id: 1440147259
 mas "Amphetamine", id: 937984704
