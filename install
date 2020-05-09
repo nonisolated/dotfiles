@@ -1,11 +1,5 @@
 #!/bin/sh
 
-# command line tools
-xcode-select --install
-
-# dotfiles
-git clone https://github.com/betraying/dotfiles ~/.dotfiles
-
 # homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 brew doctor
