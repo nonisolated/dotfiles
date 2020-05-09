@@ -39,7 +39,7 @@ ln -s ~/.dotfiles/.gitignore ~/.gitignore
 ln -s ~/.dotfiles/.zshrc ~/.zshrc
 ln -s ~/.dotfiles/.p10k.zsh ~/.p10k.zsh
 
-#configure git
+# configure git
 echo 'Git'
 read -p "Name: " name
 git config --global user.name $name
