@@ -20,7 +20,7 @@ upgrade_dotfiles() {
 }
 
 upgrade_all() {
-	upgrade_oh_my_zsh; 
+    omz update; 
 	brew upgrade; 
 	echo 'Updating powerlevel10k'
 	git -C $ZSH_CUSTOM/themes/powerlevel10k pull
