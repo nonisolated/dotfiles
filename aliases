@@ -43,8 +43,10 @@ alias gswf='f() { git switch $(git branch | grep -i $1;) }; f'
 alias glpf='f() { find . -type f -name "*$1*" -exec git log -p {} \; -print -quit }; f'
 
 alias gpristine='git reset --hard && git clean -dfx'
-
 alias grmignored='git ls-files --ignored --exclude-standard -z | xargs -0 git rm --cached'
+
+alias theirs='f() { git checkout --theirs $1; git add $1; git status }; f'
+alias ours='f() { git checkout --ours $1; git add $1; git status }; f'
 
 # Folders
 
