@@ -15,12 +15,12 @@ rm ~/.zshrc
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 
 # duti
-echo "com.sublimetext.3   public.plain-text all" | duti
-echo "com.sublimetext.3   public.unix-executable all" | duti
-duti -s com.sublimetext.3 .mod all; duti -s com.sublimetext.3 .dat all
-duti -s com.sublimetext.3 .run all; duti -s com.sublimetext.3 .tex all
-duti -s com.sublimetext.3 .json all; duti -s com.sublimetext.3 .php all
-duti -s com.sublimetext.3 .md all; duti -s com.sublimetext.3 .txt all
+echo "com.sublimetext.4   public.plain-text all" | duti
+echo "com.sublimetext.4   public.unix-executable all" | duti
+duti -s com.sublimetext.4 .mod all; duti -s com.sublimetext.4 .dat all
+duti -s com.sublimetext.4 .run all; duti -s com.sublimetext.4 .tex all
+duti -s com.sublimetext.4 .json all; duti -s com.sublimetext.4 .php all
+duti -s com.sublimetext.4 .md all; duti -s com.sublimetext.4 .txt all
 
 # rbenv
 rbenv init
