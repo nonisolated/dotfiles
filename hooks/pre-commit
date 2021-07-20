@@ -1,0 +1,8 @@
+#!/bin/sh
+
+files=$(git diff --name-only --cached)
+for file in $files; do
+	if grep -n -H '// guard' "$file"; then
+		exit 1;
+	fi
+done
