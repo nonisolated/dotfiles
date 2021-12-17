@@ -19,7 +19,7 @@ alias grm='git remote'
 alias gsw='git switch'
 alias grst='git restore'
 
-alias gaa='git add --all'
+alias gaa='git add -A'
 alias gap='git add --patch'
 alias gc='git commit -v'
 alias gc+='git commit -v --amend'
