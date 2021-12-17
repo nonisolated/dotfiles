@@ -36,7 +36,5 @@ mas "JSONViewer", id: 1438520258
 mas "Kaleidoscope", id: 587512244
 mas "Magnet", id: 441258766
 mas "RAR Extractor Lite", id: 646295438
-mas "Slack", id: 803453959
-mas "Spark", id: 1176895641
 mas "Telegram", id: 747648890
 mas "Walter`s Currency Converter", id: 1456511514
