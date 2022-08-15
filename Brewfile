@@ -28,7 +28,7 @@ cask "transmission"
 cask "windscribe"
 cask "ksdiff"
 cask "devutils"
-mas "1Password 7", id: 1333542190
+mas "1Password 8", id: 1333542190
 mas "AdGuard for Safari", id: 1440147259
 mas "Amphetamine", id: 937984704
 mas "Dark Mode for Safari", id: 1397180934
