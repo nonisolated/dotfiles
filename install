@@ -24,7 +24,7 @@ duti -s com.sublimetext.4 .md all; duti -s com.sublimetext.4 .txt all
 
 # rbenv
 rbenv init
-curl -fsSL https://github.com/rbenv/rbenv-installer/raw/master/bin/rbenv-doctor | bash
+curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash
 rbenv install --list
 read -p "Ruby version: " version
 rbenv install $version
