@@ -27,6 +27,7 @@ cask "transmission"
 cask "windscribe"
 cask "ksdiff"
 cask "devutils"
+cask "fig"
 mas "1Password 8", id: 1333542190
 mas "AdGuard for Safari", id: 1440147259
 mas "Amphetamine", id: 937984704
