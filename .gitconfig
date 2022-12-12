@@ -19,18 +19,16 @@
 	showPatch = true
 [push]
 	default = current
-[difftool "Kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-[difftool]
-	prompt = false
-[diff]
-	tool = Kaleidoscope
-[mergetool "Kaleidoscope"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" \"$REMOTE\"
-[mergetool]
-	prompt = false
 [merge]
-	tool = Kaleidoscope
+	tool = smerge
+[mergetool "smerge"]
+	cmd = subl -n --wait \"$REMOTE\" \"$BASE\" \"$LOCAL\" \"$MERGED\" --command \"sublimerge_diff_views\"
+	trustExitCode = true
+	keepBackup = false
+[diff]
+	tool = smerge
+[difftool "smerge"]
+	cmd = subl -n --wait \"$REMOTE\" \"$LOCAL\" --command \"sublimerge_diff_views {\\\"left_read_only\\\": true, \\\"right_read_only\\\": true}\"
 [tig "color"]
 	cursor = default default reverse
 	id = yellow default
