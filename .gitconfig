@@ -5,6 +5,7 @@
 	user = betraying
 [core]
 	excludesfile = ~/.gitignore
+	attributesfile = ~/.gitattributes
 [rerere]
 	enabled = true
 [pull]
@@ -35,3 +36,5 @@
 	title-focus = black green reverse
 	author = white default
 	date = cyan default
+[diff "swift"]
+    xfuncname = ^[ \t]*((struct|class|actor|func|extension)[ \t].*)$
