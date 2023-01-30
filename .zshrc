@@ -17,7 +17,7 @@ unsetopt BEEP
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-plugins=( xcode sublime macos bundler iterm2 zsh-autosuggestions sublime-merge )
+plugins=( xcode sublime macos bundler iterm2 zsh-autosuggestions )
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.dotfiles/private/.zshrc
