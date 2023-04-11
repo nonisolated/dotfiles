@@ -39,6 +39,7 @@ alias gdt='f() { rev=${1:-HEAD}; git difftool $rev~1 $rev; }; f $1'
 alias gsh='f() { git show $1 --color | sed -E "s/^([^-+ ]*)[-+ ]/\\1/" | less -r }; f'
 alias gcl='git clean -fd'
 alias grf='git reflog'
+alias glb='git for-each-ref --sort=committerdate refs/heads/ --format="%(color:yellow)%(objectname:short)%(color:reset) %(color:cyan)%(committerdate:format:%y-%m-%d %I:%M %p)%(color:reset) %(color:bold)%(color:red)%(refname:short)%(color:reset) %(contents:subject) %(color:bold)%(color:black)[%(authorname)]"'
 
 alias gswf='f() { git switch $(git branch | grep -i $1;) }; f'
 alias glpf='f() { find . -type f -name "*$1*" -exec git log -p {} \; -print -quit }; f'
