@@ -2,7 +2,8 @@
 
 files=$(git diff --name-only --cached)
 for file in $files; do
-	if grep -n -H '// guard' "$file"; then
+	if grep -n -H '// WARNING' "$file"; then
+		echo "ERROR: Attempting to commit a file that has '// WARNING' in it: $file"
 		exit 1;
 	fi
 done
