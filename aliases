@@ -42,6 +42,7 @@ alias grf='git reflog'
 alias glb='git for-each-ref --sort=committerdate refs/heads/ --format="%(color:yellow)%(objectname:short)%(color:reset) %(color:cyan)%(committerdate:format:%y-%m-%d %I:%M %p)%(color:reset) %(color:bold)%(color:red)%(refname:short)%(color:reset) %(contents:subject) %(color:bold)%(color:black)[%(authorname)]"'
 
 alias gswf='f() { git switch $(git branch | grep -i $1;) }; f'
+alias gcmt='f() { git commit -m "$(git rev-parse --abbrev-ref HEAD | grep -oE "[^/]+$"): $1" }; f'
 alias glpf='f() { find . -type f -name "*$1*" -exec git log -p {} \; -print -quit }; f'
 
 alias gpristine='git reset --hard && git clean -dfx'
