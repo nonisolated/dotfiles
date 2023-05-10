@@ -51,6 +51,10 @@ alias grmignored='git ls-files --ignored --exclude-standard -z | xargs -0 git rm
 alias theirs='f() { git checkout --theirs $1; git add $1; git status }; f'
 alias ours='f() { git checkout --ours $1; git add $1; git status }; f'
 
+# Tig
+
+alias tst='tig stash'
+
 # Folders
 
 alias dotfiles="cd ~/.dotfiles"
