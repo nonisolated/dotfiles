@@ -32,6 +32,7 @@
 	trustExitCode = true
 [mergetool]
 	prompt = false
+	keepBackup = false
 [merge]
 	tool = Kaleidoscope
 [tig "color"]
@@ -42,3 +43,5 @@
 	date = cyan default
 [diff "swift"]
     xfuncname = ^[ \t]*((struct|class|actor|func|extension)[ \t].*)$
+[credential]
+	helper = store
