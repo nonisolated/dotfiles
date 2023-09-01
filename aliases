@@ -1,52 +1,76 @@
 # Git
 
 alias g='git'
-alias ga='git add'
+
 alias grs='git reset'
 alias go='git checkout'
-alias gb='git branch'
 alias gf='git fetch'
 alias gpl='git pull'
-alias gps='git push'
 alias gcp='git cherry-pick'
-alias gm='git merge'
-alias gmt='git mergetool'
 alias grb='git rebase'
 alias grv='git revert'
 alias gs='git status'
 alias gst='git stash'
 alias grm='git remote'
-alias gsw='git switch'
 alias grst='git restore'
 
+# git add
+
+alias ga='git add'
 alias gaa='git add -A'
 alias gan='git add -N'
 alias gap='git add --patch'
+
+# git log
+
+alias gl='git log --pretty=format:"%C(yellow)%h %C(cyan)%ad %C(reset)%s%C(red bold)%d %C(black)[%an]" --graph --date=format:"%y-%m-%d %I:%M %p"'
+alias glpf='f() { find . -type f -name "*$1*" -exec git log -p {} \; -print -quit }; f'
+
+# git switch
+
+alias gsw='git switch'
+alias gswf='f() { git switch $(git branch | grep -i $1;) }; f'
+
+# git push 
+
+alias gpsf='git push --force-with-lease'
+alias gps='git push'
+
+# git commit
+
 alias gc='git commit -v'
 alias gc+='git commit -v --amend'
 alias gca='git commit -v -a'
 alias gca+='git commit -v -a --amend'
 alias gcm='git commit -m'
 alias gcam='git commit -am'
-alias gl='git log --pretty=format:"%C(yellow)%h %C(cyan)%ad %C(reset)%s%C(red bold)%d %C(black)[%an]" --graph --date=format:"%y-%m-%d %I:%M %p"'
-alias gpsf='git push --force-with-lease'
+alias gcmt='f() { git commit -m "$(git rev-parse --abbrev-ref HEAD | grep -oE "[^/]+$"): $1" }; f'
+
+# git diff
+
 alias gd='f() { git diff --color $1 | sed -E "s/^([^-+ ]*)[-+ ]/\\1/" | less -r }; f'
 alias gdw='git diff --word-diff $1'
 alias gds='f() { git diff --staged --color $1 | sed -E "s/^([^-+ ]*)[-+ ]/\\1/" | less -r }; f'
 alias gdsw='git diff --staged --word-diff $1'
 alias gdts='git difftool --staged'
 alias gdt='f() { rev=${1:-HEAD}; git difftool $rev~1 $rev; }; f $1'
-alias gsh='f() { git show $1 --color | sed -E "s/^([^-+ ]*)[-+ ]/\\1/" | less -r }; f'
-alias gcl='git clean -fd'
-alias grf='git reflog'
-alias glb='git for-each-ref --sort=committerdate refs/heads/ --format="%(color:yellow)%(objectname:short)%(color:reset) %(color:cyan)%(committerdate:format:%y-%m-%d %I:%M %p)%(color:reset) %(color:bold)%(color:red)%(refname:short)%(color:reset) %(contents:subject) %(color:bold)%(color:black)[%(authorname)]"'
 
-alias gswf='f() { git switch $(git branch | grep -i $1;) }; f'
-alias gcmt='f() { git commit -m "$(git rev-parse --abbrev-ref HEAD | grep -oE "[^/]+$"): $1" }; f'
-alias glpf='f() { find . -type f -name "*$1*" -exec git log -p {} \; -print -quit }; f'
+# git branch 
+
+alias gb='git branch'
+alias gbl='git for-each-ref --sort=committerdate refs/heads/ --format="%(color:yellow)%(objectname:short)%(color:reset) %(color:cyan)%(committerdate:format:%y-%m-%d %I:%M %p)%(color:reset) %(color:bold)%(color:red)%(refname:short)%(color:reset) %(contents:subject) %(color:bold)%(color:black)[%(authorname)]"'
 
 alias gpristine='git reset --hard && git clean -dfx'
 alias grmignored='git ls-files --ignored --exclude-standard -z | xargs -0 git rm --cached'
+
+alias gsh='f() { git show $1 --color | sed -E "s/^([^-+ ]*)[-+ ]/\\1/" | less -r }; f'
+alias gcl='git clean -fd'
+alias grf='git reflog'
+
+# git merge
+
+alias gm='git merge'
+alias gmt='git mergetool'
 
 alias theirs='f() { git checkout --theirs $1; git add $1; git status }; f'
 alias ours='f() { git checkout --ours $1; git add $1; git status }; f'
