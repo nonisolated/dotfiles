@@ -23,7 +23,7 @@ alias gap='git add --patch'
 
 # git log
 
-alias gl='git log --pretty=format:"%C(yellow)%h %C(cyan)%ad %C(reset)%s%C(red bold)%d %C(black)[%an]" --graph --date=format:"%y-%m-%d %I:%M %p"'
+alias gl='git log --pretty=format:"%C(yellow)%h %C(cyan)%ad %C(reset)%s%C(red bold)%d %C(black)[%an]" --graph --date=format:"%d-%m-%y %I:%M %p"'
 alias glpf='f() { find . -type f -name "*$1*" -exec git log -p {} \; -print -quit }; f'
 
 # git switch
