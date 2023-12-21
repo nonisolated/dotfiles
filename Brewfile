@@ -18,7 +18,6 @@ cask "appcleaner"
 cask "daisydisk"
 cask "spotify"
 cask "google-chrome"
-cask "iina"
 cask "iterm2"
 cask "paw"
 cask "proxyman"
@@ -26,16 +25,8 @@ cask "sublime-text"
 cask "transmission"
 cask "windscribe"
 cask "ksdiff"
-cask "devutils"
-cask "fig"
-mas "1Password 8", id: 1333542190
 mas "AdGuard for Safari", id: 1440147259
-mas "Amphetamine", id: 937984704
 mas "Dark Mode for Safari", id: 1397180934
 mas "DevCleaner", id: 1388020431
-mas "JSONViewer", id: 1438520258
-mas "Kaleidoscope", id: 587512244
 mas "Magnet", id: 441258766
-mas "RAR Extractor Lite", id: 646295438
 mas "Telegram", id: 747648890
-mas "Walter`s Currency Converter", id: 1456511514
