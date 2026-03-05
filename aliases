@@ -48,9 +48,9 @@ alias gcmt='f() { git commit -m "$(git rev-parse --abbrev-ref HEAD | grep -oE "[
 
 # git diff
 
-alias gd='f() { git diff --color $1 | sed -E "s/^([^-+ ]*)[-+ ]/\\1/" | less -r }; f'
+alias gd='git diff'
 alias gdw='git diff --word-diff $1'
-alias gds='f() { git diff --staged --color $1 | sed -E "s/^([^-+ ]*)[-+ ]/\\1/" | less -r }; f'
+alias gds='git diff --staged'
 alias gdsw='git diff --staged --word-diff $1'
 alias gdts='git difftool --staged'
 alias gdt='f() { rev=${1:-HEAD}; git difftool $rev~1 $rev; }; f $1'
