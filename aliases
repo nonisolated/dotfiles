@@ -58,7 +58,7 @@ alias gdt='f() { rev=${1:-HEAD}; git difftool $rev~1 $rev; }; f $1'
 # git branch 
 
 alias gb='git branch'
-alias gbl='git for-each-ref --sort=committerdate --count=10 refs/heads/ --format="%(color:yellow)%(objectname:short)%(color:reset) %(color:cyan)%(committerdate:format:%y-%m-%d %I:%M %p)%(color:reset) %(color:bold)%(color:red)%(refname:short)%(color:reset) %(contents:subject) %(color:bold)%(color:black)[%(authorname)]"'
+alias gbl='git for-each-ref --sort=-committerdate --count=10 refs/heads/ --format="%(color:yellow)%(objectname:short)%(color:reset) %(color:cyan)%(committerdate:format:%y-%m-%d %I:%M %p)%(color:reset) %(color:bold)%(color:red)%(refname:short)%(color:reset) %(contents:subject) %(color:bold)%(color:black)[%(authorname)]"'
 
 alias gpristine='git reset --hard && git clean -dfx'
 alias grmignored='git ls-files --ignored --exclude-standard -z | xargs -0 git rm --cached'
