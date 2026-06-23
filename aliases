@@ -44,7 +44,8 @@ alias gca='git commit -v -a'
 alias gca+='git commit -v -a --amend'
 alias gcm='git commit -m'
 alias gcam='git commit -am'
-alias gcmt='f() { git commit -m "$(git rev-parse --abbrev-ref HEAD | grep -oE "[^/]+$"): $1" }; f'
+alias gcmt='f() { local branch=$(git rev-parse --abbrev-ref HEAD); git commit -m "${branch##*/}: $1"; }; f'
+alias gsh='git show'
 
 # git diff
 
@@ -63,7 +64,6 @@ alias gbl='git for-each-ref --sort=-committerdate --count=10 refs/heads/ --forma
 alias gpristine='git reset --hard && git clean -dfx'
 alias grmignored='git ls-files --ignored --exclude-standard -z | xargs -0 git rm --cached'
 
-alias gsh='f() { git show $1 --color | sed -E "s/^([^-+ ]*)[-+ ]/\\1/" | less -r }; f'
 alias gcl='git clean -fd'
 alias grf='git reflog'
 
@@ -92,3 +92,35 @@ alias t='tig'
 alias reload="source ~/.zshrc"
 alias cat='ccat'
 alias aliases="cat ~/.dotfiles/aliases"
+
+# Functions
+
+gcpto() {
+  local target_branch=$1
+  local count=$2
+
+  if [[ -z "$target_branch" || -z "$count" ]]; then
+    echo "Usage: gcpto <target-branch> <count>"
+    return 1
+  fi
+
+  local original_branch
+  original_branch=$(git rev-parse --abbrev-ref HEAD)
+
+  local commits=($(git log --pretty=format:%H -n "$count" | tail -r))
+
+  git checkout "$target_branch" || return 1
+
+  local new_branch="${original_branch}-${target_branch}"
+  git checkout -b "$new_branch" || return 1
+  echo "Created and switched to new branch: $new_branch"
+
+  for commit in "${commits[@]}"; do
+    git cherry-pick "$commit" || {
+      echo "❌ Cherry-pick failed on commit $commit"
+      return 1
+    }
+  done
+
+  echo "✅ Cherry-picked ${#commits[@]} commit(s) to $new_branch"
+}
