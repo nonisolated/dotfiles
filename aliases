@@ -90,7 +90,7 @@ wt() {
 
     if [[ -z "$prefix" ]]; then
         echo "Error: worktree prefix not configured" >&2
-        echo "Run: set-project-prefix" >&2
+        echo "Run: set-project" >&2
         return 1
     fi
 
@@ -228,7 +228,7 @@ gwta() {
 
     if [[ -z "$prefix" ]]; then
         echo "Error: worktree prefix not configured" >&2
-        echo "Run: set-project-prefix" >&2
+        echo "Run: set-project" >&2
         return 1
     fi
 
