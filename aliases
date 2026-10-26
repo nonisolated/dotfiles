@@ -60,6 +60,7 @@ alias gdt='f() { rev=${1:-HEAD}; git difftool $rev~1 $rev; }; f $1'
 
 alias gb='git branch'
 alias gbl='git for-each-ref --sort=-committerdate --count=10 refs/heads/ --format="%(color:yellow)%(objectname:short)%(color:reset) %(color:cyan)%(committerdate:format:%y-%m-%d %I:%M %p)%(color:reset) %(color:bold)%(color:red)%(refname:short)%(color:reset) %(contents:subject) %(color:bold)%(color:black)[%(authorname)]"'
+alias gbsu='git branch --set-upstream-to=origin/$(git branch --show-current) $(git branch --show-current)'
 
 alias gpristine='git reset --hard && git clean -dfx'
 alias grmignored='git ls-files --ignored --exclude-standard -z | xargs -0 git rm --cached'
@@ -74,6 +75,134 @@ alias gmt='git mergetool'
 
 alias theirs='f() { git checkout --theirs $1; git add $1; git status }; f'
 alias ours='f() { git checkout --ours $1; git add $1; git status }; f'
+
+# git worktree
+alias gwt='git worktree'
+
+wt() {
+    local branch="$1"
+    local project
+    local worktree
+
+    project="$(basename "$(git rev-parse --show-toplevel)")"
+    worktree="$(git rev-parse --show-toplevel)/../${project}-${branch//\//-}"
+
+    cd "$worktree"
+}
+
+gwtr() {
+    local worktree="$PWD"
+    local gitfile="$worktree/.git"
+    local main_worktree
+
+    if [[ ! -f "$gitfile" ]]; then
+        echo "gwtr: .git file not found, are you in a worktree?" >&2
+        return 1
+    fi
+
+    local gitdir=$(grep "^gitdir:" "$gitfile" | cut -d' ' -f2)
+    
+    if [[ -z "$gitdir" ]]; then
+        echo "gwtr: cannot parse .git file" >&2
+        return 1
+    fi
+
+    main_worktree=$(echo "$gitdir" | sed 's|/.git/worktrees/.*||')
+
+    if [[ ! -d "$main_worktree/.git" ]]; then
+        echo "gwtr: main repository not found at $main_worktree" >&2
+        return 1
+    fi
+
+    cd "$main_worktree" || return 1
+    if git worktree remove "$worktree" 2>/dev/null; then
+        echo "✅ Worktree успешно удалён"
+        return 0
+    fi
+
+    echo ""
+    echo "❌ Failed to remove worktree: $worktree"
+    echo ""
+    echo "Варианты действий:"
+    echo "1) Удалить с флагом --force"
+    echo "2) Очистить данные worktree в основном репо"
+    echo "3) Просто удалить директорию worktree"
+    echo "4) Отменить"
+    echo ""
+    
+    print -n "Выберите (1-4): "
+    read choice
+
+    case "$choice" in
+        1)
+            echo "Удаляю с флагом --force..."
+            if git worktree remove "$worktree" --force; then
+                echo "✅ Worktree успешно удалён"
+                return 0
+            else
+                echo "❌ Ошибка при удалении"
+                echo ""
+                echo "Пробую альтернативный способ..."
+                local wtree_name=$(basename "$worktree")
+                rm -rf "$main_worktree/.git/worktrees/$wtree_name" 2>/dev/null
+                if rm -rf "$worktree"; then
+                    echo "✅ Директория удалена"
+                    return 0
+                else
+                    echo "❌ Не удалось удалить директорию"
+                    return 1
+                fi
+            fi
+            ;;
+        2)
+            echo "Очищаю метаданные worktree..."
+            local wtree_name=$(basename "$worktree")
+            rm -rf "$main_worktree/.git/worktrees/$wtree_name" 2>/dev/null
+            if rm -rf "$worktree"; then
+                echo "✅ Worktree очищен"
+                return 0
+            else
+                echo "❌ Не удалось удалить директорию"
+                return 1
+            fi
+            ;;
+        3)
+            echo "Удаляю директорию worktree..."
+            if rm -rf "$worktree"; then
+                echo "✅ Директория удалена"
+                return 0
+            else
+                echo "❌ Не удалось удалить директорию"
+                return 1
+            fi
+            ;;
+        4)
+            echo "Отменено"
+            return 1
+            ;;
+        *)
+            echo "❌ Неверный выбор"
+            return 1
+            ;;
+    esac
+}
+
+gwta() {
+    local branch="$1"
+    local project
+    local worktree
+
+    project="$(basename "$(git rev-parse --show-toplevel)")"
+    worktree="../${project}-${branch//\//-}"
+
+    if git show-ref --verify --quiet "refs/heads/$branch"; then
+        git worktree add "$worktree" "$branch"
+    else
+        git worktree add "$worktree" -b "$branch"
+    fi
+
+    cd "$worktree"
+}
 
 # Tig
 
@@ -123,4 +252,8 @@ gcpto() {
   done
 
   echo "✅ Cherry-picked ${#commits[@]} commit(s) to $new_branch"
+}
+
+cpfromcopy() {
+  cp "../nova-delivery copy/$1" "$1"
 }
