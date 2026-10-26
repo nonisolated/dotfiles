@@ -27,3 +27,232 @@ upgrade_all() {
 	echo 'Updating dotfiles'
 	upgrade_dotfiles;
 }
+
+wt() {
+    local branch="$1"
+    local project
+    local worktree
+    local prefix
+
+    project="$(basename "$(git rev-parse --show-toplevel)")"
+    prefix=$(git config --local worktree.prefix 2>/dev/null || echo "")
+
+    if [[ -z "$prefix" ]]; then
+        echo "Error: worktree prefix not configured" >&2
+        echo "Run: set-project" >&2
+        return 1
+    fi
+
+    worktree="$(git rev-parse --show-toplevel)/../${project}-${prefix}-${branch//\//-}"
+
+    cd "$worktree"
+}
+
+gwtr() {
+    local target_branch="${1}"
+    local worktree
+    local main_worktree
+    local gitfile
+
+    if [[ -z "$target_branch" ]]; then
+        # Legacy mode - remove current worktree
+        gitfile="$PWD/.git"
+        
+        if [[ ! -f "$gitfile" ]]; then
+            echo "gwtr: .git file not found, are you in a worktree?" >&2
+            return 1
+        fi
+
+        local gitdir=$(grep "^gitdir:" "$gitfile" | cut -d' ' -f2)
+        
+        if [[ -z "$gitdir" ]]; then
+            echo "gwtr: cannot parse .git file" >&2
+            return 1
+        fi
+
+        worktree="$PWD"
+        main_worktree=$(echo "$gitdir" | sed 's|/.git/worktrees/.*||')
+    else
+        # New mode - remove worktree by branch name/ID
+        main_worktree="$(git rev-parse --show-toplevel 2>/dev/null)"
+        
+        if [[ -z "$main_worktree" ]]; then
+            echo "gwtr: not in a git repository" >&2
+            return 1
+        fi
+
+        # Search for worktree matching target_branch
+        while IFS= read -r line; do
+            if [[ -z "$line" ]]; then continue; fi
+            local wt_path=$(echo "$line" | cut -d' ' -f2)
+            local wt_name=$(basename "$wt_path")
+            if [[ "$wt_name" == *"$target_branch"* ]]; then
+                worktree="$wt_path"
+                break
+            fi
+        done < <(git -C "$main_worktree" worktree list --porcelain 2>/dev/null)
+
+        if [[ -z "$worktree" ]]; then
+            echo "gwtr: worktree matching '$target_branch' not found" >&2
+            return 1
+        fi
+    fi
+
+    if [[ ! -d "$main_worktree/.git" ]]; then
+        echo "gwtr: main repository not found at $main_worktree" >&2
+        return 1
+    fi
+
+    cd "$main_worktree" || return 1
+    if git worktree remove "$worktree" 2>/dev/null; then
+        echo "✅ Worktree removed: $(basename "$worktree")"
+        return 0
+    fi
+
+    echo ""
+    echo "❌ Failed to remove worktree: $worktree"
+    echo ""
+    echo "Options:"
+    echo "1) Remove with --force flag"
+    echo "2) Clean worktree data from main repository"
+    echo "3) Just delete worktree directory"
+    echo "4) Cancel"
+    echo ""
+    
+    print -n "Choose (1-4): "
+    read choice
+
+    case "$choice" in
+        1)
+            echo "Removing with --force flag..."
+            if git worktree remove "$worktree" --force; then
+                echo "✅ Worktree removed: $(basename "$worktree")"
+                return 0
+            else
+                echo "❌ Error during removal"
+                return 1
+            fi
+            ;;
+        2)
+            echo "Cleaning worktree metadata..."
+            local wtree_name=$(basename "$worktree")
+            rm -rf "$main_worktree/.git/worktrees/$wtree_name" 2>/dev/null
+            if rm -rf "$worktree"; then
+                echo "✅ Worktree cleaned: $wtree_name"
+                return 0
+            else
+                echo "❌ Failed to delete directory"
+                return 1
+            fi
+            ;;
+        3)
+            echo "Removing worktree directory..."
+            if rm -rf "$worktree"; then
+                echo "✅ Directory removed: $(basename "$worktree")"
+                return 0
+            else
+                echo "❌ Failed to delete directory"
+                return 1
+            fi
+            ;;
+        4)
+            echo "Cancelled"
+            return 1
+            ;;
+        *)
+            echo "❌ Invalid choice"
+            return 1
+            ;;
+    esac
+}
+
+gwta() {
+    local branch="$1"
+    local project
+    local worktree
+    local prefix
+
+    project="$(basename "$(git rev-parse --show-toplevel)")"
+    prefix=$(git config --local worktree.prefix 2>/dev/null || echo "")
+
+    if [[ -z "$prefix" ]]; then
+        echo "Error: worktree prefix not configured" >&2
+        echo "Run: set-project" >&2
+        return 1
+    fi
+
+    worktree="../${project}-${prefix}-${branch//\//-}"
+
+    if git show-ref --verify --quiet "refs/heads/$branch"; then
+        git worktree add "$worktree" "$branch"
+    else
+        git worktree add "$worktree" -b "$branch"
+    fi
+
+    cd "$worktree"
+}
+
+set-project() {
+    if [[ ! -d ".git" ]]; then
+        echo "Error: not in a git repository root" >&2
+        return 1
+    fi
+
+    local repo_name=$(basename "$(git rev-parse --show-toplevel)")
+
+    echo "Current repository: $repo_name"
+    print -n "Enter JIRA project key: "
+    read prefix
+
+    if [[ -z "$prefix" ]]; then
+        echo "Error: prefix cannot be empty" >&2
+        return 1
+    fi
+
+    git config --local worktree.prefix "$prefix"
+    echo "✅ Prefix set to: $prefix"
+    echo "Saved in: .git/config (local, not committed)"
+}
+
+gcpto() {
+  local target_branch=$1
+  local count=$2
+
+  if [[ -z "$target_branch" || -z "$count" ]]; then
+    echo "Usage: gcpto <target-branch> <count>"
+    return 1
+  fi
+
+  local original_branch
+  original_branch=$(git rev-parse --abbrev-ref HEAD)
+
+  local commits=($(git log --pretty=format:%H -n "$count" | tail -r))
+
+  git checkout "$target_branch" || return 1
+
+  local new_branch="${original_branch}-${target_branch}"
+  git checkout -b "$new_branch" || return 1
+  echo "Created and switched to new branch: $new_branch"
+
+  for commit in "${commits[@]}"; do
+    git cherry-pick "$commit" || {
+      echo "❌ Cherry-pick failed on commit $commit"
+      return 1
+    }
+  done
+
+  echo "✅ Cherry-picked ${#commits[@]} commit(s) to $new_branch"
+}
+
+cpfromcopy() {
+  local project=$(basename "$(git rev-parse --show-toplevel)")
+  local source="../${project} copy/$1"
+  
+  if [[ ! -f "$source" ]]; then
+    echo "Error: file not found at $source" >&2
+    return 1
+  fi
+  
+  cp "$source" "$1"
+  echo "Copied: $source -> $1"
+}
