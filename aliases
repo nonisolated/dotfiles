@@ -83,9 +83,18 @@ wt() {
     local branch="$1"
     local project
     local worktree
+    local prefix
 
     project="$(basename "$(git rev-parse --show-toplevel)")"
-    worktree="$(git rev-parse --show-toplevel)/../${project}-${branch//\//-}"
+    prefix=$(git config --local worktree.prefix 2>/dev/null || echo "")
+
+    if [[ -z "$prefix" ]]; then
+        echo "Error: worktree prefix not configured" >&2
+        echo "Run: set-project-prefix" >&2
+        return 1
+    fi
+
+    worktree="$(git rev-parse --show-toplevel)/../${project}-${prefix}-${branch//\//-}"
 
     cd "$worktree"
 }
@@ -212,9 +221,18 @@ gwta() {
     local branch="$1"
     local project
     local worktree
+    local prefix
 
     project="$(basename "$(git rev-parse --show-toplevel)")"
-    worktree="../${project}-${branch//\//-}"
+    prefix=$(git config --local worktree.prefix 2>/dev/null || echo "")
+
+    if [[ -z "$prefix" ]]; then
+        echo "Error: worktree prefix not configured" >&2
+        echo "Run: set-project-prefix" >&2
+        return 1
+    fi
+
+    worktree="../${project}-${prefix}-${branch//\//-}"
 
     if git show-ref --verify --quiet "refs/heads/$branch"; then
         git worktree add "$worktree" "$branch"
