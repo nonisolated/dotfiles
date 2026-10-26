@@ -316,5 +316,14 @@ gcpto() {
 }
 
 cpfromcopy() {
-  cp "../nova-delivery copy/$1" "$1"
+  local project=$(basename "$(git rev-parse --show-toplevel)")
+  local source="../${project} copy/$1"
+  
+  if [[ ! -f "$source" ]]; then
+    echo "Error: file not found at $source" >&2
+    return 1
+  fi
+  
+  cp "$source" "$1"
+  echo "Copied: $source -> $1"
 }
