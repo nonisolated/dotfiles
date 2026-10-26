@@ -97,7 +97,7 @@ gwtr() {
     local gitfile
 
     if [[ -z "$target_branch" ]]; then
-        # Старое поведение — удалить текущий worktree
+        # Legacy mode - remove current worktree
         gitfile="$PWD/.git"
         
         if [[ ! -f "$gitfile" ]]; then
@@ -115,7 +115,7 @@ gwtr() {
         worktree="$PWD"
         main_worktree=$(echo "$gitdir" | sed 's|/.git/worktrees/.*||')
     else
-        # Новое поведение — удалить worktree по названию ветки/ID
+        # New mode - remove worktree by branch name/ID
         main_worktree="$(git rev-parse --show-toplevel 2>/dev/null)"
         
         if [[ -z "$main_worktree" ]]; then
@@ -123,7 +123,7 @@ gwtr() {
             return 1
         fi
 
-        # Ищем worktree, название которого содержит target_branch
+        # Search for worktree matching target_branch
         while IFS= read -r line; do
             if [[ -z "$line" ]]; then continue; fi
             local wt_path=$(echo "$line" | cut -d' ' -f2)
@@ -147,62 +147,62 @@ gwtr() {
 
     cd "$main_worktree" || return 1
     if git worktree remove "$worktree" 2>/dev/null; then
-        echo "✅ Worktree успешно удалён: $(basename "$worktree")"
+        echo "✅ Worktree removed: $(basename "$worktree")"
         return 0
     fi
 
     echo ""
     echo "❌ Failed to remove worktree: $worktree"
     echo ""
-    echo "Варианты действий:"
-    echo "1) Удалить с флагом --force"
-    echo "2) Очистить данные worktree в основном репо"
-    echo "3) Просто удалить директорию worktree"
-    echo "4) Отменить"
+    echo "Options:"
+    echo "1) Remove with --force flag"
+    echo "2) Clean worktree data from main repository"
+    echo "3) Just delete worktree directory"
+    echo "4) Cancel"
     echo ""
     
-    print -n "Выберите (1-4): "
+    print -n "Choose (1-4): "
     read choice
 
     case "$choice" in
         1)
-            echo "Удаляю с флагом --force..."
+            echo "Removing with --force flag..."
             if git worktree remove "$worktree" --force; then
-                echo "✅ Worktree успешно удалён: $(basename "$worktree")"
+                echo "✅ Worktree removed: $(basename "$worktree")"
                 return 0
             else
-                echo "❌ Ошибка при удалении"
+                echo "❌ Error during removal"
                 return 1
             fi
             ;;
         2)
-            echo "Очищаю метаданные worktree..."
+            echo "Cleaning worktree metadata..."
             local wtree_name=$(basename "$worktree")
             rm -rf "$main_worktree/.git/worktrees/$wtree_name" 2>/dev/null
             if rm -rf "$worktree"; then
-                echo "✅ Worktree очищен: $wtree_name"
+                echo "✅ Worktree cleaned: $wtree_name"
                 return 0
             else
-                echo "❌ Не удалось удалить директорию"
+                echo "❌ Failed to delete directory"
                 return 1
             fi
             ;;
         3)
-            echo "Удаляю директорию worktree..."
+            echo "Removing worktree directory..."
             if rm -rf "$worktree"; then
-                echo "✅ Директория удалена: $(basename "$worktree")"
+                echo "✅ Directory removed: $(basename "$worktree")"
                 return 0
             else
-                echo "❌ Не удалось удалить директорию"
+                echo "❌ Failed to delete directory"
                 return 1
             fi
             ;;
         4)
-            echo "Отменено"
+            echo "Cancelled"
             return 1
             ;;
         *)
-            echo "❌ Неверный выбор"
+            echo "❌ Invalid choice"
             return 1
             ;;
     esac
