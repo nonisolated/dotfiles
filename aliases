@@ -91,23 +91,54 @@ wt() {
 }
 
 gwtr() {
-    local worktree="$PWD"
-    local gitfile="$worktree/.git"
+    local target_branch="${1}"
+    local worktree
     local main_worktree
+    local gitfile
 
-    if [[ ! -f "$gitfile" ]]; then
-        echo "gwtr: .git file not found, are you in a worktree?" >&2
-        return 1
+    if [[ -z "$target_branch" ]]; then
+        # Старое поведение — удалить текущий worktree
+        gitfile="$PWD/.git"
+        
+        if [[ ! -f "$gitfile" ]]; then
+            echo "gwtr: .git file not found, are you in a worktree?" >&2
+            return 1
+        fi
+
+        local gitdir=$(grep "^gitdir:" "$gitfile" | cut -d' ' -f2)
+        
+        if [[ -z "$gitdir" ]]; then
+            echo "gwtr: cannot parse .git file" >&2
+            return 1
+        fi
+
+        worktree="$PWD"
+        main_worktree=$(echo "$gitdir" | sed 's|/.git/worktrees/.*||')
+    else
+        # Новое поведение — удалить worktree по названию ветки/ID
+        main_worktree="$(git rev-parse --show-toplevel 2>/dev/null)"
+        
+        if [[ -z "$main_worktree" ]]; then
+            echo "gwtr: not in a git repository" >&2
+            return 1
+        fi
+
+        # Ищем worktree, название которого содержит target_branch
+        while IFS= read -r line; do
+            if [[ -z "$line" ]]; then continue; fi
+            local wt_path=$(echo "$line" | cut -d' ' -f2)
+            local wt_name=$(basename "$wt_path")
+            if [[ "$wt_name" == *"$target_branch"* ]]; then
+                worktree="$wt_path"
+                break
+            fi
+        done < <(git -C "$main_worktree" worktree list --porcelain 2>/dev/null)
+
+        if [[ -z "$worktree" ]]; then
+            echo "gwtr: worktree matching '$target_branch' not found" >&2
+            return 1
+        fi
     fi
-
-    local gitdir=$(grep "^gitdir:" "$gitfile" | cut -d' ' -f2)
-    
-    if [[ -z "$gitdir" ]]; then
-        echo "gwtr: cannot parse .git file" >&2
-        return 1
-    fi
-
-    main_worktree=$(echo "$gitdir" | sed 's|/.git/worktrees/.*||')
 
     if [[ ! -d "$main_worktree/.git" ]]; then
         echo "gwtr: main repository not found at $main_worktree" >&2
@@ -116,7 +147,7 @@ gwtr() {
 
     cd "$main_worktree" || return 1
     if git worktree remove "$worktree" 2>/dev/null; then
-        echo "✅ Worktree успешно удалён"
+        echo "✅ Worktree успешно удалён: $(basename "$worktree")"
         return 0
     fi
 
@@ -137,21 +168,11 @@ gwtr() {
         1)
             echo "Удаляю с флагом --force..."
             if git worktree remove "$worktree" --force; then
-                echo "✅ Worktree успешно удалён"
+                echo "✅ Worktree успешно удалён: $(basename "$worktree")"
                 return 0
             else
                 echo "❌ Ошибка при удалении"
-                echo ""
-                echo "Пробую альтернативный способ..."
-                local wtree_name=$(basename "$worktree")
-                rm -rf "$main_worktree/.git/worktrees/$wtree_name" 2>/dev/null
-                if rm -rf "$worktree"; then
-                    echo "✅ Директория удалена"
-                    return 0
-                else
-                    echo "❌ Не удалось удалить директорию"
-                    return 1
-                fi
+                return 1
             fi
             ;;
         2)
@@ -159,7 +180,7 @@ gwtr() {
             local wtree_name=$(basename "$worktree")
             rm -rf "$main_worktree/.git/worktrees/$wtree_name" 2>/dev/null
             if rm -rf "$worktree"; then
-                echo "✅ Worktree очищен"
+                echo "✅ Worktree очищен: $wtree_name"
                 return 0
             else
                 echo "❌ Не удалось удалить директорию"
@@ -169,7 +190,7 @@ gwtr() {
         3)
             echo "Удаляю директорию worktree..."
             if rm -rf "$worktree"; then
-                echo "✅ Директория удалена"
+                echo "✅ Директория удалена: $(basename "$worktree")"
                 return 0
             else
                 echo "❌ Не удалось удалить директорию"
