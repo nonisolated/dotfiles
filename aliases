@@ -260,7 +260,28 @@ alias t='tig'
 alias reload="source ~/.zshrc"
 alias cat='ccat'
 alias aliases="cat ~/.dotfiles/aliases"
-alias set-project="bash ~/.dotfiles/set-project-prefix"
+
+set-project() {
+    if [[ ! -d ".git" ]]; then
+        echo "Error: not in a git repository root" >&2
+        return 1
+    fi
+
+    local repo_name=$(basename "$(git rev-parse --show-toplevel)")
+
+    echo "Current repository: $repo_name"
+    print -n "Enter worktree prefix (e.g., MOB, JIRA, etc): "
+    read prefix
+
+    if [[ -z "$prefix" ]]; then
+        echo "Error: prefix cannot be empty" >&2
+        return 1
+    fi
+
+    git config --local worktree.prefix "$prefix"
+    echo "✅ Prefix set to: $prefix"
+    echo "Saved in: .git/config (local, not committed)"
+}
 
 # Functions
 
