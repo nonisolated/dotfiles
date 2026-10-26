@@ -270,7 +270,7 @@ set-project() {
     local repo_name=$(basename "$(git rev-parse --show-toplevel)")
 
     echo "Current repository: $repo_name"
-    print -n "Enter worktree prefix (e.g., MOB, JIRA, etc): "
+    print -n "Enter JIRA project key: "
     read prefix
 
     if [[ -z "$prefix" ]]; then
