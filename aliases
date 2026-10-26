@@ -260,6 +260,7 @@ alias t='tig'
 alias reload="source ~/.zshrc"
 alias cat='ccat'
 alias aliases="cat ~/.dotfiles/aliases"
+alias set-project="bash ~/.dotfiles/set-project-prefix"
 
 # Functions
 
