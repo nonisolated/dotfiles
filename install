@@ -17,29 +17,9 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/p
 # powerlevel10k
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 
-# duti
-echo "com.sublimetext.4   public.plain-text all" | duti
-echo "com.sublimetext.4   public.unix-executable all" | duti
-duti -s com.sublimetext.4 .mod all; duti -s com.sublimetext.4 .dat all
-duti -s com.sublimetext.4 .run all; duti -s com.sublimetext.4 .tex all
-duti -s com.sublimetext.4 .json all; duti -s com.sublimetext.4 .php all
-duti -s com.sublimetext.4 .md all; duti -s com.sublimetext.4 .txt all
-
-# rbenv
-rbenv init
-curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash
-rbenv install --list
-read -p "Ruby version: " version
-rbenv install $version
-rbenv global $version
-read -p "Gems to install: " gems
-gem install $gems
-
 # symlink dotfiles
 ln -s ~/.dotfiles/.tigrc ~/.tigrc
 ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
 ln -s ~/.dotfiles/.gitignore ~/.gitignore
 ln -s ~/.dotfiles/.zshrc ~/.zshrc
 ln -s ~/.dotfiles/.p10k.zsh ~/.p10k.zsh
-
-git clone https://github.com/$github_user/dotfiles_private ~/.dotfiles/private
