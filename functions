@@ -256,3 +256,23 @@ cpfromcopy() {
   cp "$source" "$1"
   echo "Copied: $source -> $1"
 }
+
+caf() {
+  if [[ "$1" == "kill" ]]; then
+    pkill -x caffeinate 2>/dev/null \
+      && echo "caf: stopped all caffeinate" \
+      || echo "caf: nothing running"
+    return
+  fi
+
+  pkill -x caffeinate 2>/dev/null
+
+  if [[ -z "$1" ]]; then
+    caffeinate -dimsu &|
+    echo "caf: caffeinating indefinitely in background (pid $!). stop: caf kill"
+  else
+    local mins="$1"
+    caffeinate -dimsu -t $(( mins * 60 )) &|
+    echo "caf: caffeinating ${mins}m in background (pid $!). stop: caf kill"
+  fi
+}
