@@ -1,0 +1,5 @@
+# lazygit writes runtime state (state.yml, etc.) into its config dir.
+# XDG_CONFIG_HOME points inside this repo, so ignore everything except the tracked config.
+*
+!.gitignore
+!config.yml

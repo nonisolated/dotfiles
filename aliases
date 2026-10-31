@@ -87,12 +87,11 @@ alias tst='tig stash'
 
 alias dotfiles="cd ~/.dotfiles"
 alias gitdir="cd ~/Documents/Git"
-alias xcdir="~/Library/Developer/Xcode/"
+alias xcdir="cd ~/Library/Developer/Xcode/"
 
 # Common
 
 alias git=hub
 alias t='tig'
 alias reload="source ~/.zshrc"
-alias cat='ccat'
 alias aliases="cat ~/.dotfiles/aliases"

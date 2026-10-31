@@ -44,7 +44,7 @@
 [diff "swift"]
     xfuncname = ^[ \t]*((struct|class|actor|func|extension)[ \t].*)$
 [credential]
-	helper = store
+	helper = osxkeychain
 [alias]
     mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
 	fstatus = "!git status --porcelain | awk '\n\n{\n\n  split($2, path, \"/\");\n\n  dir = path[1];\n\n  count[dir]++;\n\n}\n\nEND {\n\n  for (d in count) {\n\n    printf \"%-20s %d files\\n\", d, count[d];\n\n  }\n\n}\n\n'"

@@ -1,0 +1,12 @@
+os:
+  editPreset: 'vscode'
+  
+gui:
+  theme:
+    selectedLineBgColor:
+      - black
+
+git:
+  commitPrefix:
+    - pattern: '^.*/([^/]+)$'
+      replace: '$1: '
