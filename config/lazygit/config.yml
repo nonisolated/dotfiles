@@ -10,3 +10,22 @@ git:
   commitPrefix:
     - pattern: '^.*/([^/]+)$'
       replace: '$1: '
+
+customCommands:
+  - key: 'b'
+    prompts:
+      - type: 'menu'
+        title: 'What kind of branch is it? (from {{ index .SelectedLocalBranch.Name }})'
+        options:
+          - name: 'feature'
+            value: 'feature'
+          - name: 'bugfix'
+            value: 'bugfix'
+          - name: 'hotfix'
+            value: 'hotfix'
+      - type: 'input'
+        title: 'What is the {{index .PromptResponses 0}} name?'
+        initialValue: ''
+    command: "git checkout -b {{index .PromptResponses 0}}/{{index .PromptResponses 1}}"
+    context: 'localBranches'
+    loadingText: 'creating branch'
